@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Creator OS - No Popup Edit</title>
+<meta content="#8b5cf6" name="theme-color"/>
+<style>
+:root{--bg:#f8f3ff;--card:#fff;--ink:#261d35;--muted:#786b8d;--brand:#8b5cf6;--brand2:#f472b6;--ok:#22c55e;--danger:#ef4444;--line:#eadfff;--soft:#f3eaff;--warn:#f59e0b}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:linear-gradient(135deg,#f8f3ff,#fff7fb);color:var(--ink)}button{border:0;border-radius:14px;padding:11px 14px;background:var(--brand);color:#fff;font-weight:900;cursor:pointer}button.secondary{background:var(--soft);color:#6d28d9}button.danger{background:#fee2e2;color:#b91c1c}button.ok{background:#dcfce7;color:#15803d}input,textarea,select{width:100%;border:1px solid var(--line);border-radius:14px;padding:11px 12px;background:#fff;color:var(--ink);font:inherit} input[readonly]{background:#f8f5ff;color:#6d28d9;font-weight:900;cursor:not-allowed}textarea{min-height:88px;resize:vertical}.app{min-height:100vh}.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(248,243,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}.hamb{font-size:22px;border-radius:14px;width:45px;height:45px;padding:0;background:linear-gradient(135deg,var(--brand),var(--brand2))}.title{font-weight:950;font-size:18px}.subtitle{font-size:12px;color:var(--muted)}.content{max-width:1180px;margin:auto;padding:16px 14px 80px}.hero{padding:22px;border-radius:28px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;box-shadow:0 18px 40px #8b5cf633;margin-bottom:14px}.hero h1{margin:0;font-size:28px}.hero p{margin:8px 0 0;opacity:.95}.sidebar{position:fixed;inset:0 auto 0 0;width:310px;background:#fff;border-right:1px solid var(--line);z-index:40;transform:translateX(-105%);transition:.25s;box-shadow:20px 0 50px #261d3522;overflow:auto}.sidebar.open{transform:translateX(0)}.shade{position:fixed;inset:0;background:#0005;z-index:35;display:none}.shade.show{display:block}.side-head{padding:18px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff}.side-head h2{margin:0;font-size:20px}.profile-card{padding:14px;border-bottom:1px solid var(--line)}.profile-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}.nav{padding:10px}.nav button{display:flex;align-items:center;gap:10px;width:100%;margin:6px 0;background:#fff;color:var(--ink);border:1px solid var(--line);justify-content:flex-start}.nav button.active{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0}.side-stats{padding:12px;border-top:1px solid var(--line)}.pill{display:inline-block;background:var(--soft);color:#6d28d9;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800;margin:2px}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:24px;padding:16px;box-shadow:0 10px 28px #8b5cf614;margin-bottom:14px}h2{margin:0 0 12px;font-size:18px}.mini{font-size:13px;color:var(--muted)}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.between{justify-content:space-between}.stat{padding:14px;border-radius:20px;background:#fff;border:1px solid var(--line)}.stat b{font-size:26px;display:block}.progress{height:15px;background:#f0e8ff;border-radius:999px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--brand2));transition:.25s}.hidden{display:none}.habit,.todo,.book,.item{display:grid;gap:8px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:16px;margin:8px 0;background:#fff}.habit,.todo{grid-template-columns:auto 1fr auto auto}.book{grid-template-columns:1.2fr 90px 90px auto}.item{grid-template-columns:1.1fr 120px 100px auto}.habit.done,.todo.done{background:#f0fdf4;border-color:#bbf7d0}.check{width:22px;height:22px;accent-color:var(--ok)}.editbox{display:none}.editing .editbox{display:block}.editing .labeltext{display:none}.site-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.site-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px 18px}.site-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.site-name-wrap{display:flex;align-items:center;gap:9px}.site-emoji{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--soft),#ede0ff);display:flex;align-items:center;justify-content:center;font-size:17px}.site-title-input{border:none!important;padding:0!important;border-radius:0!important;background:transparent!important;font-weight:800;font-size:15px}.site-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}.site-field label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;font-weight:800;display:block;margin-bottom:4px}.site-field input{text-align:center;font-weight:800}.site-bar-bg{height:8px;background:#f0e8ff;border-radius:999px;overflow:hidden}.site-bar-fill{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));border-radius:999px}.site-progress-label{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}.site-badges{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap}.site-badge{font-size:11px;font-weight:800;border-radius:999px;padding:3px 9px}.badge-up{background:#ede9fe;color:#5b21b6}.badge-ok{background:#dcfce7;color:#15803d}.badge-rej{background:#fee2e2;color:#b91c1c}.badge-pend{background:#fef9c3;color:#92400e}.upload-total-bar{background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:20px;padding:18px 22px;color:#fff;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:16px}.utb-item{text-align:center}.utb-val{font-size:22px;font-weight:950;display:block}.utb-lbl{font-size:11px;opacity:.85;text-transform:uppercase}.utb-div{width:1px;height:40px;background:rgba(255,255,255,.3)}table{width:100%;border-collapse:separate;border-spacing:0 8px}td,th{text-align:left;padding:9px;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:13px}td:first-child,th:first-child{border-left:1px solid var(--line);border-radius:14px 0 0 14px}td:last-child,th:last-child{border-right:1px solid var(--line);border-radius:0 14px 14px 0}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:12px}.section-title{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+
+/* Habit Tracker Mobile Card */
+.habit-progress-card{position:sticky;top:57px;z-index:10;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:18px;padding:10px 14px;margin-bottom:10px;box-shadow:0 6px 18px #8b5cf618}
+/* Habit Tracker: HP scroll friendly */
+#habit .card.habit-layout-card{
+  overflow: visible !important;
+}
+.habit-progress-card{
+  position: sticky;
+  top: 54px;
+  z-index: 10;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  margin-left: -2px;
+  margin-right: -2px;
+  box-shadow: 0 6px 18px #8b5cf618;
+}
+.habit-card-list{
+  -webkit-overflow-scrolling: touch;
+}
+@media(max-width:700px){
+  .habit-progress-card{
+    top: 50px;
+    border-radius: 14px;
+    padding: 9px 12px;
+  }
+  .habit-card{
+    padding: 10px 9px !important;
+    border-radius: 15px !important;
+  }
+}
+
+/* HP-friendly: card wrapper scrollable, no overflow issues */
+#habit .card.habit-layout-card{padding:10px;border-radius:18px;overflow:visible}
+#habit{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.habit-progress-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-weight:900}.habit-card-list{display:grid;gap:8px}.habit-card{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:18px;background:#fff}.habit-card.done{background:#f0fdf4;border-color:#bbf7d0}.habit-name{font-weight:850;line-height:1.35;padding-top:1px}.habit-actions{grid-column:2;display:flex;gap:7px;margin-top:8px}.icon-btn{width:38px;height:36px;min-width:38px;padding:0;border-radius:12px;display:inline-flex;align-items:center;justify-content:center}.icon-btn.secondary{background:var(--soft);color:#6d28d9}.icon-btn.danger{background:#fee2e2;color:#b91c1c}.habit-edit-input{grid-column:2;margin-top:4px}.habit-card.editing .habit-name{display:none}.habit-card .habit-edit-input{display:none}.habit-card.editing .habit-edit-input{display:block}
+/* Welcome modal + pinned sidebar */
+.welcome{position:fixed;inset:0;z-index:80;background:linear-gradient(135deg,#f8f3ff,#fff7fb);display:none;align-items:center;justify-content:center;padding:20px}.welcome.show{display:flex}.welcome-card{width:100%;max-width:430px;background:#fff;border:1px solid var(--line);border-radius:28px;padding:26px;box-shadow:0 24px 70px #8b5cf633}.welcome-logo{width:58px;height:58px;border-radius:18px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;font-size:28px;color:#fff;margin-bottom:14px}.welcome-card h2{font-size:24px;margin-bottom:6px}.pin-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px}.pin-btn{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);font-size:12px;padding:8px 10px}.layout-pinned .sidebar{transform:translateX(0);box-shadow:none}.layout-pinned .shade{display:none!important}.layout-pinned .topbar{margin-left:310px}.layout-pinned .content{margin-left:310px;max-width:none}.layout-pinned .hamb{display:none}.layout-pinned .sidebar{position:fixed}.layout-pinned .nav button{font-size:14px}
+@media(max-width:850px){.layout-pinned .topbar{margin-left:0}.layout-pinned .content{margin-left:0}.layout-pinned .hamb{display:block}.layout-pinned .sidebar{transform:translateX(-105%);box-shadow:20px 0 50px #261d3522}.layout-pinned .sidebar.open{transform:translateX(0)}.grid,.grid3,.grid4,.two{grid-template-columns:1fr}.site-cards{grid-template-columns:1fr}.item,.book{grid-template-columns:1fr 1fr}.sidebar{width:85vw}.hero h1{font-size:24px}.card{border-radius:20px}.content{padding:12px 10px 60px}}
+
+/* ══ AUTO-HIDE ICON SIDEBAR ══ */
+body.sidebar-collapsed .sidebar{transform:translateX(0)!important;width:76px!important;box-shadow:none!important;overflow-x:hidden!important;transition:width .25s ease, box-shadow .25s ease!important;}
+body.sidebar-collapsed.sidebar-expanded .sidebar{width:310px!important;box-shadow:20px 0 50px #261d3522!important;}
+body.sidebar-collapsed .topbar{margin-left:76px!important;}
+body.sidebar-collapsed .content{margin-left:76px!important;max-width:none!important;}
+body.sidebar-collapsed.sidebar-expanded .topbar{margin-left:310px!important;}
+body.sidebar-collapsed.sidebar-expanded .content{margin-left:310px!important;}
+body.sidebar-collapsed .hamb{display:block!important;}
+body.sidebar-collapsed .shade{display:none!important;}
+body.sidebar-collapsed .side-head{padding:14px 10px!important;text-align:center!important;white-space:nowrap!important;}
+body.sidebar-collapsed .side-head h2{font-size:0!important;margin:0!important;}
+body.sidebar-collapsed .side-head h2::before{content:'DC';font-size:14px!important;font-weight:950;}
+body.sidebar-collapsed .side-head .mini{display:none!important;}
+body.sidebar-collapsed.sidebar-expanded .side-head{padding:18px!important;text-align:left!important;}
+body.sidebar-collapsed.sidebar-expanded .side-head h2{font-size:20px!important;}
+body.sidebar-collapsed.sidebar-expanded .side-head h2::before{content:'';font-size:0!important;}
+body.sidebar-collapsed.sidebar-expanded .side-head .mini{display:block!important;}
+body.sidebar-collapsed .profile-card{padding:10px 8px!important;text-align:center!important;}
+body.sidebar-collapsed .profile-card h2{font-size:0!important;margin:0!important;}
+body.sidebar-collapsed .profile-card h2::before{content:'👤';font-size:24px!important;}
+body.sidebar-collapsed .profile-card label,
+body.sidebar-collapsed .profile-card .profile-row,
+body.sidebar-collapsed .profile-card button,
+body.sidebar-collapsed .profile-card #profileSavedMsg{display:none!important;}
+body.sidebar-collapsed.sidebar-expanded .profile-card{text-align:left!important;padding:14px!important;}
+body.sidebar-collapsed.sidebar-expanded .profile-card h2{font-size:18px!important;margin:0 0 12px!important;}
+body.sidebar-collapsed.sidebar-expanded .profile-card h2::before{content:''!important;font-size:0!important;}
+body.sidebar-collapsed.sidebar-expanded .profile-card label,
+body.sidebar-collapsed.sidebar-expanded .profile-card .profile-row,
+body.sidebar-collapsed.sidebar-expanded .profile-card button{display:block!important;}
+body.sidebar-collapsed.sidebar-expanded .profile-card .profile-row{display:grid!important;}
+body.sidebar-collapsed .nav{padding:8px!important;}
+body.sidebar-collapsed .nav button{width:58px!important;height:48px!important;padding:0!important;justify-content:center!important;gap:0!important;border-radius:16px!important;margin:7px 0!important;font-size:22px!important;}
+body.sidebar-collapsed .nav .nav-label{display:none!important;}
+body.sidebar-collapsed.sidebar-expanded .nav{padding:10px!important;}
+body.sidebar-collapsed.sidebar-expanded .nav button{width:100%!important;height:auto!important;padding:11px 14px!important;justify-content:flex-start!important;gap:10px!important;font-size:14px!important;}
+body.sidebar-collapsed.sidebar-expanded .nav .nav-label{display:inline!important;}
+body.sidebar-collapsed .side-stats{display:none!important;}
+body.sidebar-collapsed.sidebar-expanded .side-stats{display:block!important;}
+body.sidebar-collapsed .topbar{padding-left:12px!important;}
+body.sidebar-collapsed .hamb{background:#fff!important;color:var(--brand)!important;border:1px solid var(--line)!important;box-shadow:0 8px 18px #8b5cf614!important;}
+@media(max-width:850px){
+  body.sidebar-collapsed .sidebar{width:68px!important;}
+  body.sidebar-collapsed.sidebar-expanded .sidebar{width:85vw!important;}
+  body.sidebar-collapsed .topbar,body.sidebar-collapsed .content{margin-left:68px!important;}
+  body.sidebar-collapsed.sidebar-expanded .topbar,body.sidebar-collapsed.sidebar-expanded .content{margin-left:68px!important;}
+  body.sidebar-collapsed.sidebar-expanded .shade{display:block!important;}
+  body.sidebar-collapsed .nav button{width:52px!important;}
+}
+
+
+/* === MOBILE-FIRST COMPACT PATCH === */
+:root{--sidebar-mini:54px;--sidebar-full:230px;}
+body{font-size:14px;}
+button{min-height:40px;padding:9px 11px;border-radius:12px;font-size:13px;}
+input,textarea,select{padding:9px 10px;border-radius:12px;font-size:14px;}
+textarea{min-height:72px;}
+.topbar{padding:8px 10px;gap:8px;}
+.hamb{width:38px!important;height:38px!important;font-size:18px!important;border-radius:12px!important;}
+.title{font-size:15px;line-height:1.1}.subtitle{font-size:11px;line-height:1.2}.content{padding:10px 8px 56px}.hero{padding:14px 15px;border-radius:18px;margin-bottom:10px}.hero h1{font-size:19px}.hero p{font-size:12px;line-height:1.35}.card{padding:12px;border-radius:16px;margin-bottom:10px}h2{font-size:15px;margin-bottom:9px}.mini{font-size:11.5px}.stat{padding:10px;border-radius:15px}.stat b{font-size:20px}.grid,.grid3,.grid4,.two{grid-template-columns:1fr!important;gap:8px}.row{gap:6px}.pill{font-size:10.5px;padding:4px 7px}.progress{height:11px}.habit,.todo,.book,.item{padding:8px;border-radius:13px;margin:6px 0;gap:6px}.habit,.todo{grid-template-columns:auto auto 1fr auto;}.habit .danger,.todo .danger{grid-column:auto}.habit button.secondary{font-size:0;min-width:36px;width:36px;padding:0}.habit button.secondary:before{content:'✏️';font-size:15px}.habit button.danger,.todo button.danger{font-size:0;min-width:36px;width:36px;padding:0}.habit button.danger:before,.todo button.danger:before{content:'×';font-size:18px}.check{width:20px;height:20px}.book,.item{grid-template-columns:1fr 1fr!important}.book button,.item button{grid-column:span 2}.site-cards{grid-template-columns:1fr!important;gap:9px}.site-card{padding:11px;border-radius:16px}.site-card-header{margin-bottom:8px}.site-emoji{width:30px;height:30px;border-radius:9px;font-size:15px}.site-title-input{font-size:13px!important}.site-fields{gap:6px}.site-field label{font-size:9px}.site-field input{padding:7px!important;font-size:13px}.site-badge{font-size:10px;padding:3px 7px}.upload-total-bar{padding:11px 12px;border-radius:16px;gap:8px;justify-content:space-around}.utb-val{font-size:16px}.utb-lbl{font-size:9px}.utb-div{display:none}table{font-size:12px;border-spacing:0 6px}td,th{padding:7px 6px}.welcome-card{padding:18px;border-radius:22px}.welcome-logo{width:46px;height:46px;border-radius:14px;font-size:22px}.welcome-card h2{font-size:19px}
+/* compact sidebar */
+body.sidebar-collapsed .sidebar{width:var(--sidebar-mini)!important;}
+body.sidebar-collapsed.sidebar-expanded .sidebar{width:var(--sidebar-full)!important;}
+body.sidebar-collapsed .topbar,body.sidebar-collapsed .content{margin-left:var(--sidebar-mini)!important;}
+body.sidebar-collapsed.sidebar-expanded .topbar,body.sidebar-collapsed.sidebar-expanded .content{margin-left:var(--sidebar-full)!important;}
+body.sidebar-collapsed .side-head{padding:10px 6px!important}body.sidebar-collapsed .side-head h2::before{font-size:22px!important}body.sidebar-collapsed .profile-card{padding:8px 6px!important}body.sidebar-collapsed .profile-card h2::before{font-size:20px!important}body.sidebar-collapsed .nav{padding:6px!important}body.sidebar-collapsed .nav button{width:42px!important;height:42px!important;margin:5px 0!important;border-radius:13px!important;font-size:18px!important;min-height:42px!important}body.sidebar-collapsed.sidebar-expanded .nav button{width:100%!important;height:40px!important;min-height:40px!important;padding:8px 10px!important;font-size:13px!important}body.sidebar-collapsed.sidebar-expanded .profile-card label,body.sidebar-collapsed.sidebar-expanded .profile-card .profile-row,body.sidebar-collapsed.sidebar-expanded .profile-card button{display:block!important}.profile-row{grid-template-columns:1fr!important;gap:6px!important}.side-head h2{font-size:17px!important}.side-stats{font-size:12px;padding:10px!important}
+@media(max-width:600px){:root{--sidebar-mini:48px;--sidebar-full:82vw;}body.sidebar-collapsed .topbar,body.sidebar-collapsed .content{margin-left:48px!important;}body.sidebar-collapsed.sidebar-expanded .topbar,body.sidebar-collapsed.sidebar-expanded .content{margin-left:48px!important;}body.sidebar-collapsed.sidebar-expanded .shade{display:block!important}.topbar{padding:7px 8px}.content{padding:8px 7px 52px}.hero{display:none}.card{padding:10px;border-radius:15px}.grid4{display:grid!important;grid-template-columns:1fr!important}.stat b{font-size:18px}.upload-total-bar{display:grid;grid-template-columns:repeat(3,1fr)}.book,.item{grid-template-columns:1fr!important}.book button,.item button{grid-column:auto}.site-fields{grid-template-columns:1fr 1fr}.title{font-size:14px}.subtitle{font-size:10px}.sidebar{width:82vw!important}.sidebar.open{transform:translateX(0)!important}}
+
+
+/* ══ FINAL RAIL SIDEBAR WITH MENU LINES ══ */
+:root{--rail-w:54px;--drawer-w:238px;}
+body.sidebar-collapsed .sidebar{width:var(--rail-w)!important;transform:translateX(0)!important;box-shadow:none!important;border-right:1px solid var(--line)!important;background:#fff!important;overflow-x:hidden!important;}
+body.sidebar-collapsed.sidebar-expanded .sidebar{width:var(--drawer-w)!important;box-shadow:18px 0 45px #261d3522!important;}
+body.sidebar-collapsed .topbar,body.sidebar-collapsed .content{margin-left:var(--rail-w)!important;max-width:none!important;}
+body.sidebar-collapsed.sidebar-expanded .topbar,body.sidebar-collapsed.sidebar-expanded .content{margin-left:var(--drawer-w)!important;}
+.side-head{display:flex!important;align-items:center!important;gap:10px!important;padding:10px 8px!important;background:#fff!important;color:var(--ink)!important;border-bottom:1px solid var(--line)!important;min-height:58px!important;}
+.side-toggle{width:38px!important;height:38px!important;min-width:38px!important;padding:0!important;border-radius:12px!important;background:linear-gradient(135deg,var(--brand),var(--brand2))!important;color:#fff!important;font-size:20px!important;display:grid!important;place-items:center!important;box-shadow:0 8px 18px #8b5cf629!important;}
+.side-title-wrap{min-width:0!important;}
+.side-head h2{margin:0!important;font-size:17px!important;white-space:nowrap!important;}
+.side-head .mini{color:var(--muted)!important;opacity:1!important;font-size:11px!important;white-space:nowrap!important;}
+body.sidebar-collapsed:not(.sidebar-expanded) .side-head{justify-content:center!important;padding:8px 6px!important;}
+body.sidebar-collapsed:not(.sidebar-expanded) .side-title-wrap{display:none!important;}
+body.sidebar-collapsed:not(.sidebar-expanded) .side-toggle{width:40px!important;height:40px!important;min-width:40px!important;border-radius:13px!important;}
+body.sidebar-collapsed:not(.sidebar-expanded) .profile-card{display:none!important;}
+body.sidebar-collapsed .nav{padding:8px 6px!important;}
+body.sidebar-collapsed .nav button{position:relative!important;width:42px!important;height:42px!important;min-height:42px!important;margin:4px auto!important;padding:0!important;border-radius:13px!important;border:1px solid var(--line)!important;background:#fff!important;color:var(--ink)!important;justify-content:center!important;font-size:18px!important;box-shadow:none!important;}
+body.sidebar-collapsed .nav button.active{background:var(--soft)!important;color:var(--brand)!important;border-color:#d7c8ff!important;}
+body.sidebar-collapsed .nav button.active::before{content:'';position:absolute;left:-7px;top:9px;width:3px;height:24px;border-radius:9px;background:linear-gradient(180deg,var(--brand),var(--brand2));}
+body.sidebar-collapsed .nav .nav-label{display:none!important;}
+body.sidebar-collapsed.sidebar-expanded .nav{padding:10px 8px!important;}
+body.sidebar-collapsed.sidebar-expanded .nav button{width:100%!important;height:42px!important;min-height:42px!important;margin:5px 0!important;padding:0 12px!important;justify-content:flex-start!important;gap:10px!important;font-size:14px!important;border-radius:14px!important;}
+body.sidebar-collapsed.sidebar-expanded .nav .nav-label{display:inline!important;}
+body.sidebar-collapsed.sidebar-expanded .nav button.active{background:linear-gradient(135deg,var(--brand),var(--brand2))!important;color:#fff!important;border:0!important;}
+body.sidebar-collapsed.sidebar-expanded .nav button.active::before{display:none!important;}
+.nav-divider{height:1px;background:var(--line);margin:8px 4px;}
+body.sidebar-collapsed:not(.sidebar-expanded) .nav-divider{margin:8px 9px;background:#e9ddff;}
+body.sidebar-collapsed:not(.sidebar-expanded) .side-stats{display:none!important;}
+body.sidebar-collapsed.sidebar-expanded .side-stats{display:block!important;border-top:1px solid var(--line)!important;}
+body.sidebar-collapsed .hamb{display:none!important;}
+@media(max-width:700px){:root{--rail-w:50px;--drawer-w:82vw;}body.sidebar-collapsed.sidebar-expanded .topbar,body.sidebar-collapsed.sidebar-expanded .content{margin-left:var(--rail-w)!important;}body.sidebar-collapsed.sidebar-expanded .shade{display:block!important}.content{padding-left:8px!important;padding-right:8px!important}.topbar{padding:8px!important}.title{font-size:15px!important}.subtitle{font-size:10px!important}body.sidebar-collapsed .nav button{width:38px!important;height:38px!important;min-height:38px!important;font-size:17px!important}.side-toggle{width:38px!important;height:38px!important;min-width:38px!important}.card{padding:10px!important}}
+
+
+/* Habit tracker clean mobile interaction: long press to edit, X to delete */
+.habit-card{grid-template-columns:auto auto 1fr auto!important;align-items:center;gap:10px}
+.habit-name{cursor:pointer;user-select:none;-webkit-user-select:none;padding:8px 4px!important}
+.habit-name:active{background:#f7f0ff;border-radius:10px}
+.habit-delete{width:34px;height:34px;min-width:34px;padding:0;border-radius:50%;background:#fee2e2!important;color:#b91c1c!important;font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center}
+.habit-edit-modal{position:fixed;inset:0;background:#0006;z-index:80;display:none;align-items:center;justify-content:center;padding:18px}
+.habit-edit-modal.show{display:flex}
+.habit-edit-box{width:100%;max-width:360px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 24px 70px #0003}
+.habit-edit-box h3{margin:0 0 10px;font-size:18px}
+.habit-edit-actions{display:flex;gap:8px;margin-top:12px}
+.habit-edit-actions button{flex:1}
+@media(max-width:520px){.habit-card{padding:10px 9px!important;border-radius:15px}.habit-delete{width:30px;height:30px;min-width:30px;font-size:18px}.habit-name{font-size:14px}}
+
+
+
+/* Premium features: charts, calendar, dark mode, PDF report */
+.chart-card canvas{width:100%;height:220px;display:block;background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px}.cal-head{font-size:11px;font-weight:900;color:var(--muted);text-align:center}.cal-day{min-height:58px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:6px;font-size:11px;display:flex;flex-direction:column;gap:4px}.cal-day.today{outline:2px solid var(--brand)}.cal-day.empty{background:transparent;border:0}.cal-num{font-weight:900}.cal-dot{height:7px;border-radius:999px;background:#f0e8ff;overflow:hidden}.cal-fill{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2))}.cal-meta{color:var(--muted);font-size:10px}.theme-btn{margin-left:auto;background:var(--soft)!important;color:#6d28d9!important;min-width:44px}.mood-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}.mood-select{font-size:16px;font-weight:800}.cal-mood{font-size:18px;line-height:1;text-align:right}.cal-day{cursor:pointer}.cal-day.selected{outline:2px solid var(--brand2)}.report-area{display:none}.body-dark{--bg:#111827;--card:#1f2937;--ink:#f9fafb;--muted:#cbd5e1;--line:#374151;--soft:#312e81;background:#111827;color:var(--ink)}.body-dark body,.body-dark .app{background:#111827}.body-dark .topbar{background:rgba(17,24,39,.92)}.body-dark .content,.body-dark .sidebar,.body-dark .card,.body-dark .stat,.body-dark .site-card,.body-dark .habit-card,.body-dark .todo,.body-dark .book,.body-dark .item,.body-dark .cal-day,.body-dark canvas{background:#1f2937!important;color:var(--ink)!important}.body-dark input,.body-dark textarea,.body-dark select{background:#111827;color:var(--ink);border-color:var(--line)}.body-dark .profile-card,.body-dark .nav button{background:#1f2937;color:var(--ink);border-color:var(--line)}.body-dark .mini{color:#cbd5e1}.body-dark .pill{background:#312e81;color:#ddd6fe}
+@media(max-width:520px){.chart-card canvas{height:180px}.calendar-grid{gap:4px}.cal-day{min-height:48px;border-radius:10px;padding:4px}.cal-meta{display:none}}
+@media print{.sidebar,.topbar,.shade,.welcome,.hamb,.nav,.footer,button,input,textarea,select{display:none!important}.content{margin:0!important;padding:0!important;max-width:none!important}.hidden{display:block!important}.card,.stat{box-shadow:none!important;border:1px solid #ddd!important;break-inside:avoid}.report-area{display:block!important}body{background:white!important;color:#111!important}}
+
+/* GPT tracker link cards */
+.gpt-item{display:grid;grid-template-columns:1.2fr 120px 1.4fr auto auto;gap:8px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:16px;margin:8px 0;background:#fff}
+.gpt-open{background:var(--soft)!important;color:#6d28d9!important;text-decoration:none;border-radius:12px;padding:10px 12px;font-weight:900;text-align:center;display:inline-block}
+.gpt-note{grid-column:1 / -1;min-height:58px}
+@media(max-width:700px){.gpt-item{grid-template-columns:1fr 1fr}.gpt-item .gpt-link-input{grid-column:1 / -1}.gpt-open,.gpt-item button{min-height:38px}.gpt-note{grid-column:1 / -1}}
+
+
+/* Custom Habit Tracker layout */
+.habit-layout-card{display:block}.habit-title-block{display:grid;gap:10px}.habit-title-block h2{margin-bottom:0}.habit-date-block{display:grid;gap:6px;font-weight:850;color:var(--ink)}.habit-date-block span{font-size:13px;color:var(--muted);font-weight:900}.habit-date-block input{max-width:220px}.habit-add-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}.habit-divider{height:1px;background:var(--line);margin:14px 0}.habit-progress-card{position:relative;top:auto;z-index:1}.habit-progress-head span:first-child{font-size:13px;font-weight:900}.habit-progress-head span:last-child{font-size:19px;color:var(--brand);font-weight:950}
+@media(max-width:560px){.habit-add-row{grid-template-columns:1fr}.habit-date-block input{max-width:none}.habit-progress-card{padding:11px}.habit-divider{margin:12px 0}}
+
+
+/* === Habit Tracker Custom Layout + Drag Reorder === */
+.habit-layout-card .habit-top-actions{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:12px;
+}
+.habit-separator{
+  height:1px;
+  background:var(--line);
+  margin:14px 0;
+}
+.habit-date-block{
+  margin-top:12px;
+}
+.habit-date-block label{
+  display:block;
+  font-size:13px;
+  color:var(--muted);
+  font-weight:800;
+  margin-bottom:6px;
+}
+.habit-card{
+  touch-action:none;
+}
+.habit-drag{
+  width:28px;
+  min-width:28px;
+  height:34px;
+  border-radius:10px;
+  background:var(--soft);
+  color:#6d28d9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  cursor:grab;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.habit-card.dragging{
+  opacity:.55;
+  transform:scale(.98);
+  border-style:dashed;
+}
+.habit-card{
+  grid-template-columns:auto auto 1fr auto!important;
+}
+@media(max-width:520px){
+  .habit-layout-card .habit-top-actions button{width:100%}
+  .habit-card{gap:8px!important}
+  .habit-drag{width:24px;min-width:24px;height:32px;font-size:13px}
+}
+
+
+/* === Habit order buttons fallback for mobile === */
+.habit-order-actions{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.habit-order-btn{
+  width:30px;
+  height:26px;
+  min-height:26px;
+  padding:0;
+  border-radius:9px;
+  background:var(--soft)!important;
+  color:#6d28d9!important;
+  font-size:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.habit-card{
+  grid-template-columns:auto auto 1fr auto!important;
+}
+@media(max-width:520px){
+  .habit-order-btn{width:28px;height:24px;min-height:24px}
+}
+
+
+/* === Todo order buttons === */
+.todo-order-actions{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.todo-order-btn{
+  width:30px;
+  height:26px;
+  min-height:26px;
+  padding:0;
+  border-radius:9px;
+  background:var(--soft)!important;
+  color:#6d28d9!important;
+  font-size:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.todo{
+  grid-template-columns:auto auto 1fr auto!important;
+}
+@media(max-width:520px){
+  .todo-order-btn{width:28px;height:24px;min-height:24px}
+}
+
+
+/* === Stable Order UI for Habit & Todo === */
+.habit-card,.todo{
+  grid-template-columns:auto auto 1fr auto!important;
+  align-items:center!important;
+}
+.habit-order-actions,.todo-order-actions{
+  display:flex; flex-direction:column; gap:4px;
+}
+.habit-order-btn,.todo-order-btn{
+  width:30px; height:26px; min-height:26px; padding:0;
+  border-radius:9px; background:var(--soft)!important; color:#6d28d9!important;
+  font-size:13px; display:flex; align-items:center; justify-content:center;
+}
+.copy-btn{
+  margin-top:8px;
+  width:100%;
+}
+@media(max-width:520px){
+  .habit-order-btn,.todo-order-btn{width:28px;height:24px;min-height:24px}
+}
+
+
+/* === Long press reorder mode for Habit & Todo === */
+.habit-order-actions,
+.todo-order-actions{
+  display:none!important;
+}
+.habit-card.reorder-mode .habit-order-actions,
+.todo.reorder-mode .todo-order-actions{
+  display:flex!important;
+}
+.habit-card.reorder-mode,
+.todo.reorder-mode{
+  outline:2px solid var(--brand);
+  background:#faf5ff!important;
+}
+.reorder-hint{
+  display:inline-block;
+  margin-top:6px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+
+/* === Long press drag & drop reorder only === */
+.habit-order-actions,
+.todo-order-actions{
+  display:none!important;
+}
+.habit-card.drag-ready,
+.todo.drag-ready{
+  outline:2px dashed var(--brand);
+  background:#faf5ff!important;
+  cursor:grab;
+}
+.habit-card.dragging,
+.todo.dragging{
+  opacity:.6;
+  transform:scale(.98);
+}
+.drag-toast{
+  position:fixed;
+  left:50%;
+  bottom:22px;
+  transform:translateX(-50%);
+  background:#261d35;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+  z-index:999;
+  display:none;
+  box-shadow:0 10px 30px #0003;
+}
+.drag-toast.show{display:block;}
+
+
+.habit-card{grid-template-columns:auto auto 1fr auto!important;}
+.todo{grid-template-columns:auto auto 1fr auto!important;}
+
+
+/* === Upload date daily reset === */
+.upload-date-row{
+  display:flex;
+  gap:10px;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+}
+.upload-date-row label{
+  flex:1;
+  min-width:180px;
+}
+.upload-date-row button{
+  min-width:140px;
+}
+
+
+/* === Weekly upload progress bar === */
+.weekly-upload-progress{
+  margin-top:12px;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+}
+.weekly-upload-progress .weekly-row{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  align-items:center;
+  margin-bottom:8px;
+  font-size:13px;
+  font-weight:900;
+}
+.weekly-upload-progress .weekly-detail{
+  margin-top:8px;
+  font-size:12px;
+  color:var(--muted);
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+
+/* === Monthly goal progress bars === */
+.monthly-progress-card{
+  margin-top:12px;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+}
+.monthly-progress-row{
+  margin-bottom:14px;
+}
+.monthly-progress-row:last-child{
+  margin-bottom:0;
+}
+.monthly-progress-head{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  align-items:center;
+  margin-bottom:7px;
+  font-size:13px;
+  font-weight:900;
+}
+.monthly-progress-sub{
+  margin-top:6px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+
+/* === Desktop hover handle + Mobile long press drag === */
+.todo-drag-handle,
+.habit-drag-handle{
+  width:30px;
+  min-width:30px;
+  height:34px;
+  border-radius:10px;
+  background:var(--soft);
+  color:#6d28d9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:950;
+  cursor:grab;
+  user-select:none;
+  -webkit-user-select:none;
+  opacity:0;
+  transform:scale(.92);
+  transition:.16s ease;
+}
+.todo:hover .todo-drag-handle,
+.habit-card:hover .habit-drag-handle{
+  opacity:1;
+  transform:scale(1);
+}
+.todo.drag-ready .todo-drag-handle,
+.habit-card.drag-ready .habit-drag-handle,
+.todo.dragging .todo-drag-handle,
+.habit-card.dragging .habit-drag-handle{
+  opacity:1;
+  transform:scale(1);
+}
+.todo.dragging,
+.habit-card.dragging{
+  opacity:.58;
+  border-style:dashed;
+}
+.todo,
+.habit-card{
+  grid-template-columns:auto auto 1fr auto!important;
+}
+@media(max-width:700px){
+  .todo-drag-handle,
+  .habit-drag-handle{
+    opacity:0;
+    width:24px;
+    min-width:24px;
+    height:30px;
+    font-size:12px;
+  }
+  .todo.drag-ready .todo-drag-handle,
+  .habit-card.drag-ready .habit-drag-handle,
+  .todo.dragging .todo-drag-handle,
+  .habit-card.dragging .habit-drag-handle{
+    opacity:1;
+  }
+}
+
+
+/* === Stable native desktop DnD + mobile long press DnD === */
+.habit-drag-handle,.todo-drag-handle{
+  width:30px; min-width:30px; height:34px;
+  border-radius:10px; background:var(--soft); color:#6d28d9;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:950; cursor:grab; user-select:none; -webkit-user-select:none;
+  opacity:0; transform:scale(.92); transition:.16s ease;
+}
+.habit-card:hover .habit-drag-handle,.todo:hover .todo-drag-handle,
+.habit-card.drag-ready .habit-drag-handle,.todo.drag-ready .todo-drag-handle,
+.habit-card.dragging .habit-drag-handle,.todo.dragging .todo-drag-handle{
+  opacity:1; transform:scale(1);
+}
+.habit-card,.todo{grid-template-columns:auto auto 1fr auto!important;align-items:center!important}
+.habit-card.dragging,.todo.dragging{opacity:.55;border-style:dashed}
+.habit-card.drag-over,.todo.drag-over{outline:2px dashed var(--brand);background:#faf5ff!important}
+@media(max-width:700px){
+  .habit-drag-handle,.todo-drag-handle{opacity:0;width:24px;min-width:24px;height:30px;font-size:12px}
+}
+
+
+/* === ROBUST TODO/HABIT ADD + DRAG FIX === */
+.habit-card,.todo{
+  grid-template-columns:auto auto 1fr auto!important;
+  align-items:center!important;
+}
+.habit-drag-handle,.todo-drag-handle{
+  width:32px!important;
+  min-width:32px!important;
+  height:36px!important;
+  border-radius:10px!important;
+  background:var(--soft)!important;
+  color:#6d28d9!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-weight:950!important;
+  cursor:grab!important;
+  user-select:none!important;
+  -webkit-user-select:none!important;
+  opacity:.35;
+  transition:.15s ease;
+}
+.habit-card:hover .habit-drag-handle,
+.todo:hover .todo-drag-handle,
+.habit-card.dragging .habit-drag-handle,
+.todo.dragging .todo-drag-handle,
+.habit-card.drag-ready .habit-drag-handle,
+.todo.drag-ready .todo-drag-handle{
+  opacity:1;
+}
+.habit-card.dragging,.todo.dragging{
+  opacity:.55!important;
+  border-style:dashed!important;
+  background:#faf5ff!important;
+}
+.todo input[type="text"], .todo .todo-text-input{
+  min-width:0;
+}
+@media(max-width:700px){
+  .habit-drag-handle,.todo-drag-handle{
+    width:26px!important;
+    min-width:26px!important;
+    height:32px!important;
+    font-size:12px!important;
+    opacity:.25;
+  }
+}
+
+</style>
+</head>
+<body class="layout-pinned">
+<div class="welcome" id="welcomeModal">
+<div class="welcome-card">
+<div class="welcome-logo">✨</div>
+<h2>Selamat datang 👋</h2>
+<p class="mini">Isi nama dulu agar Digital Creator OS terasa lebih personal. Data ini hanya tersimpan di perangkatmu.</p>
+<label class="mini">Nama Pengguna<input id="welcomeName" placeholder="Contoh: Ika Rifqiyawan"/></label>
+<div class="two" style="margin-top:10px">
+<label class="mini">Target Income $<input id="welcomeIncomeGoal" min="0" placeholder="500" type="number"/></label>
+<label class="mini">Target Upload<input id="welcomeUploadGoal" min="0" placeholder="5000" type="number"/></label>
+</div>
+<label class="mini">Niche<input id="welcomeNiche" placeholder="Microstock &amp; Produk Digital"/></label>
+<button onclick="saveWelcomeProfile()" style="width:100%;margin-top:14px;padding:14px">Mulai Pakai Dashboard</button>
+</div>
+</div>
+<div class="shade" id="shade" onclick="closeSidebar()"></div>
+<div id="dragToast" class="drag-toast">Geser untuk mengubah urutan</div>
+
+<div class="habit-edit-modal" id="habitEditModal" onclick="closeHabitEditModal(event)">
+  <div class="habit-edit-box">
+    <h3>Edit Habit</h3>
+    <input id="habitEditInput" placeholder="Nama habit">
+    <div class="habit-edit-actions">
+      <button class="secondary" onclick="closeHabitEditModal()">Batal</button>
+      <button onclick="saveHabitFromModal()">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<aside class="sidebar" id="sidebar">
+<div class="side-head">
+<button aria-label="Buka atau tutup menu" class="side-toggle" onclick="toggleSidebar()">☰</button>
+<div class="side-title-wrap">
+<h2>Digital Creator OS</h2>
+<div class="mini" style="color:#fff;opacity:.9">Dashboard pribadi untuk creator digital</div>
+</div>
+</div>
+<div class="profile-card">
+<h2 id="sidebarDisplayName">👤 Pengguna</h2>
+<label class="mini">Nama Pengguna<input id="profileName" placeholder="Ika Rifqiyawan"/></label>
+<div class="profile-row">
+<label class="mini">Target Income $<input id="profileIncomeGoal" min="0" type="number"/></label>
+<label class="mini">Target Upload<input id="profileUploadGoal" min="0" type="number"/></label>
+</div>
+<label class="mini">Niche<input id="profileNiche" placeholder="Microstock &amp; Produk Digital"/></label>
+<button class="ok" onclick="saveProfile()" style="width:100%;margin-top:10px">💾 Simpan Profil</button>
+<button class="danger" onclick="logoutToWelcome()" style="width:100%;margin-top:8px">Keluar</button>
+<div class="mini" id="profileSavedMsg" style="display:none;margin-top:8px;color:#15803d;font-weight:800">Profil berhasil disimpan ✅</div>
+</div>
+<div class="nav" id="navButtons"></div>
+<div class="side-stats" id="sideStats"></div>
+</aside>
+<div class="app">
+<div class="topbar"><button class="hamb" onclick="toggleSidebar()">☰</button><div><div class="title">Digital Creator OS</div><div class="subtitle" id="topSubtitle">Dashboard</div></div><button class="theme-btn" onclick="toggleDarkMode()" title="Dark Mode">🌙</button></div>
+<main class="content">
+<section class="hero"><h1>Digital Creator OS</h1><p>Dashboard creator dengan sidebar kiri, profil personal, tracker Canva • Adobe Stock • Magnific, dan custom source.</p></section>
+<section id="dashboard">
+<div class="card row between"><div><h2>📅 Hari Ini</h2><div class="mini">Pilih tanggal kerja</div></div><input id="date" onchange="renderAll()" style="max-width:180px" type="date"/></div>
+<div class="grid4">
+<div class="stat"><span class="mini">Progress Habit</span><b id="dashHabit">0%</b><div class="progress"><div class="bar" id="dashHabitBar"></div></div></div>
+<div class="stat"><span class="mini">Todo Selesai</span><b id="dashTodo">0/0</b><div class="progress"><div class="bar" id="dashTodoBar"></div></div></div>
+<div class="stat"><span class="mini">Upload Bulan Ini</span><b id="dashUploadMonth">0</b></div>
+<div class="stat"><span class="mini">Income Bulan Ini</span><b id="dashIncome">$0.00</b></div>
+</div>
+<div class="grid4">
+<div class="stat"><span class="mini">🔥 Habit Streak</span><b id="dashStreak">0 hari</b></div>
+<div class="stat"><span class="mini">📚 Buku Tercatat</span><b id="dashBooks">0</b></div>
+<div class="stat"><span class="mini">🛍 Produk Dijual</span><b id="dashProducts">0</b></div>
+<div class="stat"><span class="mini">🤖 GPT Tercatat</span><b id="dashGpts">0</b></div>
+</div>
+<div class="grid"><div class="card"><h2>🎯 Fokus Hari Ini</h2><textarea id="focus" oninput="save()" placeholder="Contoh: Upload 20 aset, buat listing, promosi produk."></textarea><label style="display:block;margin-top:10px">Mood Hari Ini<select class="mood-select" id="mood" onchange="save();renderCalendar()"><option value="😐 Biasa">😐 Biasa</option><option value="😄 Senang">😄 Senang</option><option value="🔥 Produktif">🔥 Produktif</option><option value="😴 Capek">😴 Capek</option><option value="🚀 Luar biasa">🚀 Luar biasa</option><option value="😵 Overwhelmed">😵 Overwhelmed</option></select></label></div><div class="card"><h2>🏆 Ringkasan</h2><div id="summary"></div></div></div>
+<div class="grid"><div class="card chart-card"><h2>📊 Grafik Income Bulanan</h2><canvas height="260" id="incomeChart" width="600"></canvas></div><div class="card chart-card"><h2>📈 Grafik Upload Bulanan</h2><canvas height="260" id="uploadChart" width="600"></canvas></div></div>
+<div class="card"><div class="section-title"><h2>📅 Calendar View</h2><span class="mini">Progress habit harian bulan ini</span></div><div class="calendar-grid" id="calendarView"></div></div>
+</section>
+<section class="hidden" id="habit">
+<div class="card habit-layout-card">
+<div class="habit-title-block">
+<h2>✅ Habit Tracker</h2>
+<label class="habit-date-block">
+<span>📅 Pilih Tanggal</span>
+<input id="habitDate" onchange="setAppDate(this.value)" type="date"/>
+</label>
+<div class="habit-add-row">
+<input id="newHabit" onkeydown="if(event.key==='Enter')addHabit()" placeholder="Contoh: Riset niche 20 menit"/>
+<button onclick="addHabit()">+ Tambah Habit</button>
+</div>
+</div>
+<div class="habit-divider"></div>
+<div class="habit-progress-card">
+<div class="habit-progress-head">
+<span>Progress Hari Ini</span>
+<span id="habitProgressText">0%</span>
+</div>
+<div class="progress"><div class="bar" id="habitProgressBar"></div></div>
+<div class="mini" id="habitProgressMini" style="margin-top:7px">0/0 habit selesai</div>
+</div>
+<div class="habit-divider"></div>
+<div class="habit-card-list" id="habitList"></div>
+<p class="mini">Centang habit yang selesai. Tekan tahan nama habit untuk edit, dan tekan × untuk hapus.</p>
+</div>
+</section>
+<section class="hidden" id="todo"><div class="grid"><div class="card"><h2>📝 Todo Harian</h2><div id="todoList"></div><p class="mini">Desktop: arahkan cursor lalu drag ikon ⋮⋮. Mobile: tekan tahan lalu geser todo.</p></div><div class="card"><h2>➕ Tambah Todo</h2><input id="newTodo" placeholder="Contoh: Buat 5 pin Pinterest"/><br/><br/><button onclick="addTodo()">Tambah Todo</button></div></div></section>
+<section class="hidden" id="upload">
+<div class="grid"><div class="card"><h2>📈 Upload Goal Tracker</h2>
+        <div class="upload-date-row">
+          <label class="mini">📅 Tanggal Upload<input id="uploadDate" type="date" onchange="setUploadDate(this.value)"></label>
+          <button class="secondary" onclick="setUploadDate(day())">Ikuti Tanggal Hari Ini</button>
+        </div>
+        <p class="mini">Upload per situs tersimpan per tanggal. Saat ganti tanggal, angka per situs otomatis mengikuti data tanggal tersebut.</p><div class="two"><label>Target Mingguan Total<input id="weeklyTarget" min="0" onblur="saveWeeklyTarget()" onchange="saveWeeklyTarget()" oninput="saveWeeklyTarget()" type="number"/></label><label>Upload Hari Ini Total<input id="uploadToday" min="0" readonly="" title="Otomatis dari total Uploaded per situs" type="number"/></label><label>Approved Hari Ini<input id="approvedToday" min="0" readonly="" title="Otomatis dari total Approved per situs" type="number"/></label><label>Rejected Hari Ini<input id="rejectedToday" min="0" readonly="" title="Otomatis dari total Rejected per situs" type="number"/></label></div></div><div class="card"><h2>📊 Minggu Ini</h2><div id="weeklyBox"></div>
+        <div class="weekly-upload-progress">
+          <div class="weekly-row">
+            <span>Progress Target Mingguan</span>
+            <span id="weeklyUploadPct">0%</span>
+          </div>
+          <div class="progress"><div id="weeklyUploadBar" class="bar"></div></div>
+          <div class="weekly-detail">
+            <span id="weeklyUploadText">0 / 0 upload</span>
+            <span id="weeklyUploadRemaining">Sisa 0</span>
+          </div>
+        </div>
+      </div></div>
+<div class="card"><div class="section-title"><h2>🌐 Upload per Situs</h2><button onclick="addUploadSite()">+ Tambah Custom</button></div>
+<div class="upload-total-bar"><div class="utb-item"><span class="utb-val" id="utbTarget">0</span><span class="utb-lbl">Target</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbUploaded">0</span><span class="utb-lbl">Upload</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbApproved">0</span><span class="utb-lbl">Approved</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbRejected">0</span><span class="utb-lbl">Rejected</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbPending">0</span><span class="utb-lbl">Pending</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbPct">0%</span><span class="utb-lbl">Progress</span></div></div>
+<div class="site-cards" id="uploadSiteList"></div><button onclick="addUploadSite()" style="width:100%;margin-top:14px">＋ Tambah Situs Custom</button>
+</div>
+</section>
+<section class="hidden" id="income"><div class="grid"><div class="card"><h2>💰 Income Tracker</h2><p class="mini">Default: Canva, Adobe Stock, Magnific. Sumber lain bisa Custom.</p><div class="two"><label>Bulan<input id="incomeMonth" type="month"/></label><label>Sumber<select id="incomeSource" onchange="toggleOtherSource()"><option>Canva</option><option>Adobe Stock</option><option>Magnific</option><option>Custom Source (+)</option></select></label><label class="hidden" id="incomeOtherWrap">Sumber lainnya<input id="incomeOther" placeholder="Contoh: Freepik"/></label><label>Income USD<input id="incomeAmount" min="0" step="0.01" type="number"/></label><button onclick="addIncome()">Tambah Income</button></div><table><thead><tr><th>Bulan</th><th>Sumber</th><th>Income USD</th><th></th></tr></thead><tbody id="incomeTable"></tbody></table></div><div class="card"><h2>📊 Ringkasan Income</h2><div class="stat"><span class="mini">Total bulan dipilih</span><b id="incomeMonthTotal">$0.00</b></div><br/><div class="stat"><span class="mini">Total semua data</span><b id="incomeTotal">$0.00</b></div><div id="incomeSummary" style="margin-top:12px"></div></div></div></section>
+<section class="hidden" id="reading"><div class="grid"><div class="card"><div class="section-title"><h2>📚 Reading Tracker</h2><div class="mini" style="margin-bottom:10px">Tanggal Baca<input id="readingDate" onchange="save()" style="margin-top:6px" type="date"/></div><button onclick="addBook()">+ Tambah Buku</button></div><div id="bookList"></div></div><div class="card"><h2>📝 Catatan Baca Hari Ini</h2><label>Halaman dibaca hari ini<input id="pagesToday" min="0" oninput="save()" type="number"/></label><br/><label>Insight buku<textarea id="readingNote" oninput="save()"></textarea></label><button class="secondary copy-btn" onclick="copyReadingInsight()">📋 Copy Insight Buku</button></div></div></section>
+<section class="hidden" id="gpt"><div class="card"><div class="section-title"><h2>🤖 GPT Tracker</h2><button onclick="addRow('gptList')">+ Tambah GPT</button></div><p class="mini">Simpan nama GPT, status, catatan, dan link akses agar bisa langsung dibuka.</p><div id="gptList"></div></div></section>
+<section class="hidden" id="product"><div class="card"><div class="section-title"><h2>🛍 Product Tracker</h2><button onclick="addRow('productList')">+ Tambah Produk</button></div><div id="productList"></div></div></section>
+<section class="hidden" id="weekly"><div class="grid"><div class="card"><div class="section-title"><div><h2>📋 Weekly Review</h2><div class="mini" id="weeklyPeriodLabel">Review tersimpan per minggu.</div></div><input id="weeklyReviewDate" onchange="setAppDate(this.value)" style="max-width:150px" type="date"/></div><label>Menang minggu ini<textarea id="weeklyWin" oninput="save()"></textarea></label><label>Kendala minggu ini<textarea id="weeklyBlock" oninput="save()"></textarea></label><label>Prioritas minggu depan<textarea id="weeklyNext" oninput="save()"></textarea></label></div><div class="card"><h2>📊 Rekap Mingguan</h2><div id="weeklyReviewBox"></div></div></div></section>
+<section class="hidden" id="monthly"><div class="grid"><div class="card"><div class="section-title"><div><h2>🏆 Monthly Goal</h2><div class="mini" id="monthlyPeriodLabel">Target tersimpan per bulan.</div></div><input id="monthlyGoalMonth" onchange="setAppMonth(this.value)" style="max-width:150px" type="month"/></div><div class="two"><label>Target Upload Bulanan<input id="monthlyUploadGoal" min="0" oninput="save()" type="number"/></label><label>Target Income Bulanan<input id="monthlyIncomeGoal" min="0" oninput="save()" type="number"/></label><label>Target Produk Launch<input id="monthlyProductGoal" min="0" oninput="save()" type="number"/></label><label>Target Halaman Baca<input id="monthlyReadingGoal" min="0" oninput="save()" type="number"/></label></div></div><div class="card"><h2>📈 Progress Bulan Ini</h2><div id="monthlyProgressBars" class="monthly-progress-card"></div><div id="monthlyBox"></div></div></div></section>
+<section class="hidden" id="calendar"><div class="card"><div class="section-title"><h2>📅 Calendar View</h2><button class="secondary" onclick="renderCalendar()">Refresh</button></div><p class="mini">Kotak menunjukkan progress habit dan mood setiap tanggal pada bulan yang dipilih.</p><div class="mood-row"><label>Tanggal mood<input id="moodDate" onchange="loadMoodForDate(this.value)" type="date"/></label><label>Mood<select class="mood-select" id="calendarMoodSelect" onchange="setMoodForDate()"><option value="">Pilih mood</option><option value="😐 Biasa">😐 Biasa</option><option value="😄 Senang">😄 Senang</option><option value="🔥 Produktif">🔥 Produktif</option><option value="😴 Capek">😴 Capek</option><option value="🚀 Luar biasa">🚀 Luar biasa</option><option value="😵 Overwhelmed">😵 Overwhelmed</option></select></label></div><div class="calendar-grid" id="calendarViewFull"></div></div></section>
+<section class="hidden" id="backup"><div class="card"><h2>📤 Export Data</h2><p class="mini">Simpan data sebagai backup JSON atau laporan CSV.</p><div class="row"><button onclick="exportJSON()">⬇️ Export JSON</button><button class="secondary" onclick="exportCSV()">⬇️ Export CSV</button><button class="ok" onclick="exportPDFReport()">📤 Export PDF Report</button></div></div><div class="card"><h2>📥 Import Data</h2><button onclick="document.getElementById('importFile').click()" style="width:100%">📂 Pilih File JSON</button><input accept=".json" id="importFile" onchange="handleImportFile(this)" style="display:none" type="file"/></div><div class="card"><h2>🗑️ Reset Data</h2><button class="danger" onclick="resetAll()">Reset Semua Data</button></div></section>
+<div class="footer">Digital Creator OS • Tanpa login • Data tersimpan lokal di browser</div>
+</main>
+</div>
+<script>
+const DEFAULT_HABITS=['Upload Microstock','Buat Produk Digital','Promosi Produk','Belajar AI','Baca Buku','Olahraga'];
+const DEFAULT_SITES=['Canva','Adobe Stock','Magnific'];
+const MENUS=[['dashboard','📊 Dashboard'],['habit','✅ Habit Tracker'],['todo','📝 Todo Harian'],['upload','📈 Upload Tracker'],['income','💰 Income Tracker'],['reading','📚 Reading Tracker'],['gpt','🤖 GPT Tracker'],['product','🛍 Product Tracker'],['weekly','📋 Weekly Review'],['monthly','🏆 Monthly Goal'],['calendar','📅 Calendar View'],['backup','💾 Backup']];
+const $=id=>document.getElementById(id); const __now=new Date();$('date').value=`${__now.getFullYear()}-${String(__now.getMonth()+1).padStart(2,'0')}-${String(__now.getDate()).padStart(2,'0')}`;
+let state=JSON.parse(localStorage.getItem('dcos_final_sidebar')||'null')||{profile:{name:'',incomeGoal:500,uploadGoal:5000,niche:'Microstock & Produk Digital'},habits:DEFAULT_HABITS.map((name,i)=>({id:Date.now()+i,name})),days:{},products:[['Coloring Book Bundle','Ide',0],['Canva Mockup','Proses',0]],gpts:[['GPT Caption Viral','Proses',0]],books:[['Atomic Habits',320,0]],income:[],uploadSites:DEFAULT_SITES.map(name=>({name,target:0,uploaded:0,approved:0,rejected:0}))};
+if(state.gpts) state.gpts=state.gpts.map(g=>[g[0]||'',g[1]||'Ide',(g[2]&&typeof g[2]==='string')?g[2]:'',g[3]||'']);
+if(!state.profile) state.profile={name:'',incomeGoal:500,uploadGoal:5000,niche:'Microstock & Produk Digital'};
+if(!state.weeks) state.weeks={};
+if(!state.months) state.months={};
+if(!state.profile.niche) state.profile.niche='Microstock & Produk Digital';
+
+if(!state.books || !Array.isArray(state.books) || state.books.length===0){
+  state.books=[['Atomic Habits',320,0]];
+}
+
+// Migrasi target mingguan lama yang tersimpan per tanggal ke sistem target per minggu
+Object.keys(state.days||{}).forEach(k=>{ if(state.days[k]&&state.days[k].weeklyTarget){ const oldDay=$('date')?$('date').value:null; if($('date'))$('date').value=k; if(!state.weeks)state.weeks={}; const wk=weekKeyFromDate(k); if(!state.weeks[wk])state.weeks[wk]={weeklyTarget:state.days[k].weeklyTarget}; delete state.days[k].weeklyTarget; if(oldDay&&$('date'))$('date').value=oldDay; }});
+// Migrasi review mingguan dan target bulanan lama agar tidak hilang saat ganti hari
+Object.keys(state.days||{}).forEach(k=>{
+  const dayData=state.days[k]||{};
+  const wk=weekKeyFromDate(k);
+  if(!state.weeks[wk]) state.weeks[wk]={weeklyTarget:'',weeklyWin:'',weeklyBlock:'',weeklyNext:''};
+  ['weeklyWin','weeklyBlock','weeklyNext'].forEach(f=>{ if(dayData[f] && !state.weeks[wk][f]) state.weeks[wk][f]=dayData[f]; delete dayData[f]; });
+  const mo=monthKeyFromDate(k);
+  if(!state.months[mo]) state.months[mo]={monthlyUploadGoal:'',monthlyIncomeGoal:'',monthlyProductGoal:'',monthlyReadingGoal:''};
+  ['monthlyUploadGoal','monthlyIncomeGoal','monthlyProductGoal','monthlyReadingGoal'].forEach(f=>{ if(dayData[f] && !state.months[mo][f]) state.months[mo][f]=dayData[f]; delete dayData[f]; });
+});
+if(state.darkMode) document.documentElement.classList.add('body-dark');
+let sidebarExpanded=false;
+function openSidebar(){ toggleSidebar(); }
+function toggleSidebar(){ sidebarExpanded=!sidebarExpanded; document.body.classList.toggle('sidebar-expanded', sidebarExpanded); if(window.innerWidth<=850){ $('shade').classList.toggle('show', sidebarExpanded); } }
+function closeSidebar(){ sidebarExpanded=false; document.body.classList.remove('sidebar-expanded'); $('shade').classList.remove('show'); }
+function applySidebarPin(){ document.body.classList.remove('layout-pinned'); document.body.classList.add('sidebar-collapsed'); $('sidebar').classList.add('open'); $('shade').classList.remove('show'); }
+function togglePinSidebar(){ toggleSidebar(); }
+function initNav(){
+  const breaks=new Set([2,4,7,9]);
+  $('navButtons').innerHTML=MENUS.map((m,i)=>{
+    let icon=m[1].split(' ')[0];
+    let label=m[1].replace(icon,'').trim();
+    let divider=breaks.has(i)?'<div class="nav-divider"></div>':'';
+    return `${divider}<button class="${i==0?'active':''}" onclick="tab('${m[0]}',this)" title="${label}"><span class="nav-icon">${icon}</span><span class="nav-label">${label}</span></button>`
+  }).join('')
+}
+function tab(id,el){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));$(id).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(t=>t.classList.remove('active'));el.classList.add('active');$('topSubtitle').textContent=(el.querySelector('.nav-label')?.textContent||el.textContent).trim();closeSidebar();ensureUploadDaily();renderAll();renderCalendar();if(id==='calendar')renderCalendar()}
+function day(){return $('date').value}
+function weekKeyFromDate(dateStr){
+  const keys=weekKeysForDate(dateStr);
+  return keys[0]+'__'+keys[6];
+}
+function weekKeysForDate(dateStr){
+  // Minggu sebagai awal minggu, Sabtu sebagai akhir minggu agar konsisten dengan Calendar View
+  let now=new Date(dateStr+'T12:00:00');
+  let dow=now.getDay(); // 0=Minggu, 1=Senin, ... 6=Sabtu
+  let start=new Date(now);
+  start.setDate(now.getDate()-dow);
+  return Array.from({length:7},(_,i)=>{
+    let dd=new Date(start);
+    dd.setDate(start.getDate()+i);
+    return localDateKey(dd);
+  });
+}
+function w(){
+  if(!state.weeks) state.weeks={};
+  const key=weekKeyFromDate(day());
+  if(!state.weeks[key]) state.weeks[key]={weeklyTarget:'',weeklyWin:'',weeklyBlock:'',weeklyNext:''};
+  // migrasi aman jika data minggu lama hanya punya weeklyTarget
+  ['weeklyWin','weeklyBlock','weeklyNext'].forEach(k=>{ if(state.weeks[key][k]===undefined) state.weeks[key][k]=''; });
+  return state.weeks[key];
+}
+function monthKeyFromDate(dateStr){ return (dateStr||day()).slice(0,7); }
+function m(){
+  if(!state.months) state.months={};
+  const key=monthKeyFromDate(day());
+  if(!state.months[key]) state.months[key]={monthlyUploadGoal:'',monthlyIncomeGoal:'',monthlyProductGoal:'',monthlyReadingGoal:''};
+  return state.months[key];
+}
+function setAppDate(value){ if(!value)return; $('date').value=value; renderAll(); }
+function setAppMonth(value){ if(!value)return; $('date').value=value+'-01'; renderAll(); }
+function getWeeklyTargetValue(){
+  const data=w();
+  return data.weeklyTarget !== undefined && data.weeklyTarget !== '' ? data.weeklyTarget : '100';
+}
+function saveWeeklyTarget(){
+  const el=$('weeklyTarget');
+  if(!el) return;
+  const data=w();
+  data.weeklyTarget=el.value;
+  persist();
+  renderUploadTotals(false);
+  updateDashboard();
+}
+function d(){if(!state.days[day()])state.days[day()]={checks:{},todos:[],focus:'',uploadToday:'',approvedToday:'',rejectedToday:'',mood:'😐 Biasa'};return state.days[day()]}
+
+function setHabitDate(value){
+  if(!value) return;
+  if($('date')) $('date').value=value;
+  renderAll();
+}
+
+function showProfileSaved(){
+  const msg=$('profileSavedMsg');
+  if(msg){msg.style.display='block'; clearTimeout(window.__profileMsgTimer); window.__profileMsgTimer=setTimeout(()=>msg.style.display='none',1800);}
+}
+function saveProfile(){
+  const name=($('profileName').value||'').trim();
+  state.profile={
+    name:name || 'Pengguna',
+    incomeGoal:Number($('profileIncomeGoal').value||0),
+    uploadGoal:Number($('profileUploadGoal').value||0),
+    niche:($('profileNiche').value||'').trim() || 'Microstock & Produk Digital'
+  };
+  persist();
+  loadProfile();
+  updateDashboard();
+  showProfileSaved();
+}
+function loadProfile(){
+  state.profile=state.profile||{name:'',incomeGoal:500,uploadGoal:5000,niche:'Microstock & Produk Digital'};
+  if($('profileName')) $('profileName').value=state.profile.name||'';
+  if($('profileIncomeGoal')) $('profileIncomeGoal').value=state.profile.incomeGoal||'';
+  if($('profileUploadGoal')) $('profileUploadGoal').value=state.profile.uploadGoal||'';
+  if($('profileNiche')) $('profileNiche').value=state.profile.niche||'';
+  if($('sidebarDisplayName')) $('sidebarDisplayName').textContent='👤 '+(state.profile.name||'Pengguna');
+}
+function save(){let x=d();syncUploadTodayFromSites(false);let ww=w(),mm=m();if($('weeklyTarget')) ww.weeklyTarget=$('weeklyTarget').value;['weeklyWin','weeklyBlock','weeklyNext'].forEach(id=>{if($(id))ww[id]=$(id).value});['monthlyUploadGoal','monthlyIncomeGoal','monthlyProductGoal','monthlyReadingGoal'].forEach(id=>{if($(id))mm[id]=$(id).value});['focus','pagesToday','readingNote','mood'].forEach(id=>{if($(id))x[id]=$(id).value});state.products=getRows('productList');state.gpts=getRows('gptList');state.books=getBooks();persist();updateDashboard()}
+function persist(){localStorage.setItem('dcos_final_sidebar',JSON.stringify(state))}
+function renderAll(){let x=d(),ww=w(),mm=m();['focus','uploadToday','approvedToday','rejectedToday','pagesToday','readingNote'].forEach(id=>{if($(id))$(id).value=x[id]||''});['weeklyWin','weeklyBlock','weeklyNext'].forEach(id=>{if($(id))$(id).value=ww[id]||''});['monthlyUploadGoal','monthlyIncomeGoal','monthlyProductGoal','monthlyReadingGoal'].forEach(id=>{if($(id))$(id).value=mm[id]||''});if($('weeklyTarget'))$('weeklyTarget').value=getWeeklyTargetValue();if($('habitDate'))$('habitDate').value=day();if($('weeklyReviewDate'))$('weeklyReviewDate').value=day();if($('monthlyGoalMonth'))$('monthlyGoalMonth').value=monthKeyFromDate(day());let wk=weekKeys();if($('weeklyPeriodLabel'))$('weeklyPeriodLabel').textContent='Periode: '+wk[0]+' s/d '+wk[6];if($('monthlyPeriodLabel'))$('monthlyPeriodLabel').textContent='Target bulan '+monthKeyFromDate(day());renderHabits();renderTodos();renderRows('productList',state.products);renderRows('gptList',state.gpts);renderBooks();renderIncome();renderUploadSites();if($('habitDate')) $('habitDate').value=day();if($('uploadDate') && !$('uploadDate').value) $('uploadDate').value=day();updateDashboard()}
+function esc(s){return String(s||'').replace(/[&<>\"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function usd(n){return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(n||0))}
+function currentMonth(){return day().slice(0,7)}
+let habitEditId=null;
+let habitPressTimer=null;
+let habitLongPressed=false;
+function renderHabits(){
+  const list=$('habitList');
+  if(!list) return;
+  list.innerHTML='';
+  const x=d();
+  const doneCount=state.habits.filter(h=>x.checks[h.id]).length;
+  const total=state.habits.length;
+  const pct=total?Math.round(doneCount/total*100):0;
+
+  if($('habitProgressText')) $('habitProgressText').textContent=pct+'%';
+  if($('habitProgressBar')) $('habitProgressBar').style.width=pct+'%';
+  if($('habitProgressMini')) $('habitProgressMini').textContent=doneCount+'/'+total+' habit selesai';
+  if($('habitDate')) $('habitDate').value=day();
+
+  state.habits.forEach((h,idx)=>{
+    const done=!!x.checks[h.id];
+    const div=document.createElement('div');
+    div.className='habit-card '+(done?'done':'');
+    div.dataset.id=String(h.id);
+    div.dataset.index=String(idx);
+    div.innerHTML=`
+      <span class="habit-drag-handle" title="Drag untuk ubah urutan">⋮⋮</span>
+      <input class="check" type="checkbox" ${done?'checked':''} onchange="toggleHabit(${h.id})">
+      <div class="habit-name" data-id="${h.id}" title="Tekan tahan untuk edit">${esc(h.name)}</div>
+      <button type="button" class="habit-delete" onclick="deleteHabit(${h.id})" title="Hapus">×</button>
+    `;
+    list.appendChild(div);
+  });
+
+  bindHabitLongPress();
+  bindSortableList('habitList','.habit-card','.habit-drag-handle',saveHabitOrderFromDom);
+}
+
+
+function saveHabitOrderFromDom(){
+  const ids=[...document.querySelectorAll('#habitList .habit-card')].map(el=>Number(el.dataset.id));
+  if(!ids.length) return;
+  const map=new Map(state.habits.map(h=>[h.id,h]));
+  state.habits=ids.map(id=>map.get(id)).filter(Boolean);
+  persist();
+  updateDashboard();
+}
+function saveTodoOrderFromDom(){
+  const x=d();
+  const old=Array.isArray(x.todos) ? x.todos.slice() : [];
+  const order=[...document.querySelectorAll('#todoList .todo')].map(el=>Number(el.dataset.index));
+  if(!order.length) return;
+  x.todos=order.map(i=>old[i]).filter(Boolean);
+  persist();
+  updateDashboard();
+}
+function getDragAfterElement(container,y,selector){
+  const els=[...container.querySelectorAll(selector+':not(.dragging)')];
+  return els.reduce((closest,child)=>{
+    const box=child.getBoundingClientRect();
+    const offset=y-box.top-box.height/2;
+    if(offset<0 && offset>closest.offset) return {offset,element:child};
+    return closest;
+  },{offset:Number.NEGATIVE_INFINITY}).element;
+}
+function bindSortableList(listId,itemSelector,handleSelector,onSave){
+  const list=$(listId);
+  if(!list) return;
+
+  let dragging=null;
+  let pressTimer=null;
+  let mobileReady=false;
+
+  const isTouchDevice=()=>window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+  list.querySelectorAll(itemSelector).forEach(item=>{
+    const handle=item.querySelector(handleSelector);
+    if(!handle) return;
+
+    // Desktop native drag by handle
+    item.setAttribute('draggable','true');
+
+    handle.addEventListener('mousedown',()=>{
+      if(!isTouchDevice()) item.dataset.canDrag='1';
+    });
+
+    item.addEventListener('dragstart',e=>{
+      if(isTouchDevice() || item.dataset.canDrag!=='1'){
+        e.preventDefault();
+        return;
+      }
+      dragging=item;
+      item.classList.add('dragging');
+      e.dataTransfer.effectAllowed='move';
+      e.dataTransfer.setData('text/plain','move');
+    });
+
+    item.addEventListener('dragover',e=>{
+      if(isTouchDevice() || !dragging) return;
+      e.preventDefault();
+      const after=getDragAfterElement(list,e.clientY,itemSelector);
+      if(after==null) list.appendChild(dragging);
+      else list.insertBefore(dragging,after);
+    });
+
+    item.addEventListener('dragend',()=>{
+      if(dragging){
+        dragging.classList.remove('dragging');
+        onSave();
+      }
+      dragging=null;
+      delete item.dataset.canDrag;
+    });
+
+    // Mobile long press + drag — ONLY from handle
+    handle.addEventListener('touchstart',e=>{
+      clearTimeout(pressTimer);
+      mobileReady=false;
+      pressTimer=setTimeout(()=>{
+        mobileReady=true;
+        dragging=item;
+        item.classList.add('drag-ready','dragging');
+        const toast=$('dragToast');
+        if(toast){
+          toast.classList.add('show');
+          clearTimeout(window.__dragToastTimer);
+          window.__dragToastTimer=setTimeout(()=>toast.classList.remove('show'),1200);
+        }
+      },400);
+    },{passive:true});
+
+    handle.addEventListener('touchmove',e=>{
+      if(!mobileReady || !dragging) return;
+      const y=e.touches[0].clientY;
+      const after=getDragAfterElement(list,y,itemSelector);
+      if(after==null) list.appendChild(dragging);
+      else list.insertBefore(dragging,after);
+      if(e.cancelable) e.preventDefault();
+    },{passive:false});
+
+    const endTouch=()=>{
+      clearTimeout(pressTimer);
+      if(dragging){
+        dragging.classList.remove('drag-ready','dragging');
+        onSave();
+      }
+      dragging=null;
+      mobileReady=false;
+    };
+    handle.addEventListener('touchend',endTouch);
+    handle.addEventListener('touchcancel',endTouch);
+  });
+}
+
+/* bindHabitLongPress: long-press on habit name → edit modal (separate from drag handle) */
+function bindHabitLongPress(){
+  document.querySelectorAll('#habitList .habit-card').forEach(card=>{
+    const nameEl=card.querySelector('.habit-name');
+    if(!nameEl) return;
+    let pressTimer=null;
+    nameEl.addEventListener('touchstart',e=>{
+      pressTimer=setTimeout(()=>{
+        const id=Number(card.dataset.id);
+        openHabitEditModal(id);
+      },600);
+    },{passive:true});
+    nameEl.addEventListener('touchend',()=>clearTimeout(pressTimer));
+    nameEl.addEventListener('touchcancel',()=>clearTimeout(pressTimer));
+    nameEl.addEventListener('touchmove',()=>clearTimeout(pressTimer));
+    nameEl.addEventListener('click',()=>{
+      const id=Number(card.dataset.id);
+      openHabitEditModal(id);
+    });
+  });
+}
+
+function addHabit(){
+  const input=$('newHabit');
+  const name=input ? input.value.trim() : '';
+  if(!name) return;
+  state.habits.push({id:Date.now(),name});
+  input.value='';
+  persist();
+  renderAll();
+}
+function toggleHabit(id){
+  const x=d();
+  x.checks[id]=!x.checks[id];
+  persist();
+  renderAll();
+}
+function openHabitEditModal(id){
+  habitEditId=id;
+  const h=state.habits.find(x=>x.id===id);
+  if(!h) return;
+  const input=$('habitEditInput');
+  if(input){
+    input.value=h.name;
+    setTimeout(()=>input.focus(),80);
+  }
+  const modal=$('habitEditModal');
+  if(modal) modal.classList.add('show');
+}
+function closeHabitEditModal(e){
+  if(e && e.target && e.target.id!=='habitEditModal') return;
+  const modal=$('habitEditModal');
+  if(modal) modal.classList.remove('show');
+  habitEditId=null;
+}
+function saveHabitFromModal(){
+  const input=$('habitEditInput');
+  const val=input ? input.value.trim() : '';
+  if(!val || habitEditId===null) return;
+  state.habits=state.habits.map(h=>h.id===habitEditId?{...h,name:val}:h);
+  persist();
+  closeHabitEditModal();
+  renderAll();
+}
+function deleteHabit(id){
+  if(confirm('Hapus habit ini?')){
+    state.habits=state.habits.filter(h=>h.id!==id);
+    persist();
+    renderAll();
+  }
+}
+
+function renderTodos(){
+  const list=$('todoList');
+  if(!list) return;
+  const x=d();
+  if(!Array.isArray(x.todos)) x.todos=[];
+  list.innerHTML='';
+
+  x.todos.forEach((t,i)=>{
+    const div=document.createElement('div');
+    div.className='todo '+(t.done?'done':'');
+    div.dataset.index=String(i);
+    div.innerHTML=`
+      <span class="todo-drag-handle" title="Drag untuk ubah urutan">⋮⋮</span>
+      <input class="check" type="checkbox" ${t.done?'checked':''} onchange="toggleTodo(${i})">
+      <input class="todo-text-input" type="text" value="${esc(t.text)}" oninput="editTodo(${i},this.value)">
+      <button type="button" class="danger" onclick="deleteTodo(${i})">×</button>
+    `;
+    list.appendChild(div);
+  });
+
+  bindSortableList('todoList','.todo','.todo-drag-handle',saveTodoOrderFromDom);
+}
+
+function addTodo(){
+  const input=$('newTodo');
+  const text=input ? input.value.trim() : '';
+  if(!text) return;
+  const x=d();
+  if(!Array.isArray(x.todos)) x.todos=[];
+  x.todos.push({text:text,done:false});
+  input.value='';
+  persist();
+  renderAll();
+}
+function toggleTodo(i){
+  const x=d();
+  if(!x.todos || !x.todos[i]) return;
+  x.todos[i].done=!x.todos[i].done;
+  persist();
+  renderAll();
+}
+function editTodo(i,v){
+  const x=d();
+  if(!x.todos || !x.todos[i]) return;
+  x.todos[i].text=v;
+  persist();
+}
+function deleteTodo(i){
+  const x=d();
+  if(!x.todos || !x.todos[i]) return;
+  x.todos.splice(i,1);
+  persist();
+  renderAll();
+}
+
+function rowHtml(r=['','Ide',0]){return `<div class="item"><input value="${esc(r[0])}" placeholder="Nama"><select><option ${r[1]=='Ide'?'selected':''}>Ide</option><option ${r[1]=='Proses'?'selected':''}>Proses</option><option ${r[1]=='Selesai'?'selected':''}>Selesai</option><option ${r[1]=='Dijual'?'selected':''}>Dijual</option></select><input type="number" min="0" value="${r[2]||0}" placeholder="Rp"><button class="danger" onclick="this.parentElement.remove();save()">×</button></div>`}
+function normalizeGptRow(r){
+  if(!Array.isArray(r)) return ['', 'Ide', '', ''];
+  return [r[0]||'', r[1]||'Ide', r[2]||'', r[3]||''];
+}
+function gptRowHtml(r=['','Ide','','']){
+  r=normalizeGptRow(r);
+  let name=r[0], status=r[1], link=r[2], note=r[3];
+  let safeLink=esc(link);
+  let openBtn=link?`<a class="gpt-open" href="${safeLink}" target="_blank" rel="noopener">🔗 Buka</a>`:`<span class="gpt-open" style="opacity:.55">🔗 Link</span>`;
+  return `<div class="gpt-item">
+    <input class="gpt-name-input" value="${esc(name)}" placeholder="Nama GPT" autocomplete="off">
+    <select class="gpt-status-input"><option ${status=='Ide'?'selected':''}>Ide</option><option ${status=='Proses'?'selected':''}>Proses</option><option ${status=='Selesai'?'selected':''}>Selesai</option><option ${status=='Aktif'?'selected':''}>Aktif</option></select>
+    <input class="gpt-link-input" value="${safeLink}" placeholder="https://chatgpt.com/g/..." autocomplete="off">
+    <span class="gpt-open-wrap">${openBtn}</span>
+    <button class="danger" onclick="this.parentElement.remove();saveGptRowsOnly();updateDashboard()">×</button>
+    <textarea class="gpt-note" placeholder="Catatan / fungsi GPT">${esc(note)}</textarea>
+  </div>`;
+}
+function bindGptRows(){
+  document.querySelectorAll('#gptList .gpt-item').forEach(row=>{
+    row.querySelectorAll('input,select,textarea').forEach(el=>{
+      el.addEventListener('input',()=>{saveGptRowsOnly(); if(el.classList.contains('gpt-link-input')) updateGptOpenButton(row);});
+      el.addEventListener('change',()=>{saveGptRowsOnly(); if(el.classList.contains('gpt-link-input')) updateGptOpenButton(row);});
+    });
+  });
+}
+function saveGptRowsOnly(){
+  state.gpts=getRows('gptList');
+  persist();
+  if($('dashGpts')) $('dashGpts').textContent=state.gpts.length;
+}
+function updateGptOpenButton(row){
+  let link=row.querySelector('.gpt-link-input')?.value.trim()||'';
+  let wrap=row.querySelector('.gpt-open-wrap');
+  if(!wrap) return;
+  wrap.innerHTML=link?`<a class="gpt-open" href="${esc(link)}" target="_blank" rel="noopener">🔗 Buka</a>`:`<span class="gpt-open" style="opacity:.55">🔗 Link</span>`;
+}
+function renderRows(id,rows){
+  if(!$(id))return;
+  if(id==='gptList'){
+    $(id).innerHTML=(rows||[]).map(r=>gptRowHtml(r)).join('');
+    bindGptRows();
+    return;
+  }
+  $(id).innerHTML=(rows||[]).map(rowHtml).join('');
+  document.querySelectorAll('#'+id+' input,#'+id+' select').forEach(e=>e.oninput=save);
+}
+function addRow(id){
+  if(id==='gptList'){
+    state.gpts=getRows('gptList');
+    state.gpts.push(['','Ide','','']);
+    renderRows('gptList',state.gpts);
+    persist();
+    setTimeout(()=>{let inputs=document.querySelectorAll('#gptList .gpt-name-input'); if(inputs.length) inputs[inputs.length-1].focus();},60);
+    updateDashboard();
+    return;
+  }
+  $(id).insertAdjacentHTML('beforeend',rowHtml());save();
+}
+function getRows(id){
+  let box=$(id);
+  if(!box)return id=='productList'?state.products:state.gpts;
+  if(id==='gptList')return[...box.querySelectorAll('.gpt-item')].map(i=>[
+    i.querySelector('.gpt-name-input')?.value||'',
+    i.querySelector('.gpt-status-input')?.value||'Ide',
+    i.querySelector('.gpt-link-input')?.value||'',
+    i.querySelector('.gpt-note')?.value||''
+  ]);
+  return[...box.querySelectorAll('.item')].map(i=>[i.querySelectorAll('input')[0].value,i.querySelector('select').value,Number(i.querySelectorAll('input')[1].value||0)]);
+}
+
+function ensureUploadDaily(){
+  if(!state.uploadDaily) state.uploadDaily={};
+  // migrate old global uploadSites into current day once if daily data empty
+  if(state.uploadSites && !state.__uploadMigrated){
+    state.uploadDaily[day()] = JSON.parse(JSON.stringify(state.uploadSites));
+    state.__uploadMigrated = true;
+    persist();
+  }
+}
+function uploadDay(){
+  ensureUploadDaily();
+  let key = ($('uploadDate') && $('uploadDate').value) || day();
+  if(!state.uploadDaily[key]){
+    state.uploadDaily[key]=DEFAULT_SITES.map(name=>({name,target:0,uploaded:0,approved:0,rejected:0}));
+  }
+  return state.uploadDaily[key];
+}
+function setUploadDate(value){
+  if(!value) return;
+  if($('uploadDate')) $('uploadDate').value=value;
+  ensureUploadDaily();
+  uploadDay();
+  renderUploadSites();
+  updateDashboard();
+  persist();
+}
+
+function getSiteEmoji(name){return {'Canva':'🎨','Adobe Stock':'🅰','Magnific':'✨'}[name]||'🌐'}
+function renderUploadSites(){let box=$('uploadSiteList');if(!box)return;box.innerHTML=uploadDay().map((s,i)=>{let up=+s.uploaded||0,tg=+s.target||0,ap=+s.approved||0,rej=+s.rejected||0,pend=Math.max(0,up-ap-rej),p=tg?Math.min(100,Math.round(up/tg*100)):0;return `<div class="site-card"><div class="site-card-header"><div class="site-name-wrap"><div class="site-emoji">${getSiteEmoji(s.name)}</div><input class="site-title-input" value="${esc(s.name)}" data-i="${i}" data-f="name" placeholder="Custom Source"></div><button class="danger" onclick="delUploadSite(${i})">Hapus</button></div><div class="site-fields"><div class="site-field"><label>Target</label><input type="number" value="${tg}" data-i="${i}" data-f="target"></div><div class="site-field"><label>Uploaded</label><input type="number" value="${up}" data-i="${i}" data-f="uploaded"></div><div class="site-field"><label>Approved</label><input type="number" value="${ap}" data-i="${i}" data-f="approved"></div><div class="site-field"><label>Rejected</label><input type="number" value="${rej}" data-i="${i}" data-f="rejected"></div></div><div class="site-progress-label"><span>${up} dari ${tg}</span><b>${p}%</b></div><div class="site-bar-bg"><div class="site-bar-fill" style="width:${p}%"></div></div><div class="site-badges"><span class="site-badge badge-up">📤 ${up}</span><span class="site-badge badge-ok">✅ ${ap}</span><span class="site-badge badge-rej">❌ ${rej}</span><span class="site-badge badge-pend">⏳ ${pend}</span></div></div>`}).join('');document.querySelectorAll('.site-card input').forEach(e=>e.oninput=function(){let i=+this.dataset.i,f=this.dataset.f;let sites=uploadDay();if(!sites[i])return;sites[i][f]=f==='name'?this.value:Number(this.value||0);renderUploadTotals(true);persist();updateDashboard();});renderUploadTotals(false)}
+function addUploadSite(){uploadDay().push({name:'Custom Source',target:0,uploaded:0,approved:0,rejected:0});persist();renderUploadSites()}function delUploadSite(i){if(confirm('Hapus situs ini?')){state.uploadSites.splice(i,1);persist();renderUploadSites();if($('habitDate')) $('habitDate').value=day();if($('uploadDate') && !$('uploadDate').value) $('uploadDate').value=day();updateDashboard()}}
+function getUploadTotals(){return uploadDay().reduce((a,b)=>({target:a.target+(+b.target||0),uploaded:a.uploaded+(+b.uploaded||0),approved:a.approved+(+b.approved||0),rejected:a.rejected+(+b.rejected||0)}),{target:0,uploaded:0,approved:0,rejected:0})}
+function syncUploadTodayFromSites(forceSync=false){let t=getUploadTotals(),x=d();if(forceSync){x.uploadToday=Number(t.uploaded||0);x.approvedToday=Number(t.approved||0);x.rejectedToday=Number(t.rejected||0);if($('uploadToday'))$('uploadToday').value=x.uploadToday;if($('approvedToday'))$('approvedToday').value=x.approvedToday;if($('rejectedToday'))$('rejectedToday').value=x.rejectedToday;}return t}
+function calcWeeklyUploadFromDaily(){
+  // Sum uploaded field across all days in current week from uploadDaily
+  const wk=weekKeys();
+  let total=0;
+  if(state.uploadDaily){
+    wk.forEach(k=>{
+      const sites=state.uploadDaily[k]||[];
+      sites.forEach(s=>{ total+=(+s.uploaded||0); });
+    });
+  }
+  // fallback: sum uploadToday from days
+  if(!total){
+    total=wk.reduce((s,k)=>s+Number((state.days[k]||{}).uploadToday||0),0);
+  }
+  return total;
+}
+function renderUploadTotals(forceSync=false){let t=syncUploadTodayFromSites(forceSync);if(forceSync)persist();let pend=Math.max(0,t.uploaded-t.approved-t.rejected),pct=t.target?Math.min(100,Math.round(t.uploaded/t.target*100)):0;if($('utbTarget')){$('utbTarget').textContent=t.target;$('utbUploaded').textContent=t.uploaded;$('utbApproved').textContent=t.approved;$('utbRejected').textContent=t.rejected;$('utbPending').textContent=pend;$('utbPct').textContent=pct+'%'}
+  // Update weekly progress bar
+  const weeklyTotal=calcWeeklyUploadFromDaily();
+  const weeklyTarget=Number(getWeeklyTargetValue()||0);
+  const weeklyPct=weeklyTarget?Math.min(100,Math.round(weeklyTotal/weeklyTarget*100)):0;
+  if($('weeklyUploadPct')) $('weeklyUploadPct').textContent=weeklyPct+'%';
+  if($('weeklyUploadBar')) $('weeklyUploadBar').style.width=weeklyPct+'%';
+  if($('weeklyUploadText')) $('weeklyUploadText').textContent=weeklyTotal+' / '+(weeklyTarget||0)+' upload';
+  if($('weeklyUploadRemaining')) $('weeklyUploadRemaining').textContent='Sisa '+(weeklyTarget?Math.max(0,weeklyTarget-weeklyTotal):0);document.querySelectorAll('.site-card').forEach((card,i)=>{let s=uploadDay()[i];if(!s)return;let up=+s.uploaded||0,tg=+s.target||0,ap=+s.approved||0,rej=+s.rejected||0,sitePend=Math.max(0,up-ap-rej),sitePct=tg?Math.min(100,Math.round(up/tg*100)):0;let lbl=card.querySelector('.site-progress-label span');if(lbl)lbl.textContent=up+' dari '+tg;let b=card.querySelector('.site-progress-label b');if(b)b.textContent=sitePct+'%';let fill=card.querySelector('.site-bar-fill');if(fill)fill.style.width=sitePct+'%';let badges=card.querySelector('.site-badges');if(badges)badges.innerHTML=`<span class="site-badge badge-up">📤 ${up}</span><span class="site-badge badge-ok">✅ ${ap}</span><span class="site-badge badge-rej">❌ ${rej}</span><span class="site-badge badge-pend">⏳ ${sitePend}</span>`;});}
+function renderBooks(){let box=$('bookList');if(!box)return;box.innerHTML=state.books.map((b,i)=>`<div class="book"><input value="${esc(b[0]||'')}" placeholder="Judul buku" oninput="saveBooks()"><input type="number" value="${b[1]||0}" placeholder="Target" oninput="saveBooks()"><input type="number" value="${b[2]||0}" placeholder="Dibaca" oninput="saveBooks()"><button class="danger" onclick="deleteBook(${i})">×</button></div>`).join('')}function addBook(){state.books=getBooks();state.books.push(['',0,0]);renderBooks();save()}function saveBooks(){state.books=getBooks();save()}function deleteBook(i){state.books=getBooks();state.books.splice(i,1);renderBooks();save()}function getBooks(){let box=$('bookList');if(!box)return state.books;return[...box.querySelectorAll('.book')].map(b=>[b.querySelectorAll('input')[0].value,Number(b.querySelectorAll('input')[1].value||0),Number(b.querySelectorAll('input')[2].value||0)])}
+
+function copyReadingInsight(){
+  const text=($('readingNote')&&$('readingNote').value)||'';
+  if(!text.trim()){alert('Insight buku masih kosong.');return;}
+  navigator.clipboard?.writeText(text).then(()=>alert('Insight buku berhasil dicopy ✅')).catch(()=>{
+    const ta=document.createElement('textarea');
+    ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+    alert('Insight buku berhasil dicopy ✅');
+  });
+}
+
+function toggleOtherSource(){if($('incomeOtherWrap'))$('incomeOtherWrap').classList.toggle('hidden',$('incomeSource').value!=='Custom Source (+)')}function addIncome(){let month=$('incomeMonth').value||currentMonth();let src=$('incomeSource').value;if(src==='Custom Source (+)')src=$('incomeOther').value.trim()||'Custom Source';let amt=Number($('incomeAmount').value||0);if(!amt)return;state.income.push({month,src,amt});$('incomeAmount').value='';$('incomeOther').value='';persist();renderIncome()}function renderIncome(){let tb=$('incomeTable');if(!tb)return;if(!$('incomeMonth').value)$('incomeMonth').value=currentMonth();let selected=$('incomeMonth').value;tb.innerHTML=state.income.map((r,i)=>`<tr><td>${r.month}</td><td>${esc(r.src)}</td><td>${usd(r.amt)}</td><td><button class="danger" onclick="state.income.splice(${i},1);persist();renderIncome()">×</button></td></tr>`).join('');let all=state.income.reduce((a,b)=>a+(+b.amt||0),0),mo=state.income.filter(r=>r.month===selected).reduce((a,b)=>a+(+b.amt||0),0);$('incomeTotal').textContent=usd(all);$('incomeMonthTotal').textContent=usd(mo);let by={};state.income.filter(r=>r.month===selected).forEach(r=>by[r.src]=(by[r.src]||0)+(+r.amt||0));$('incomeSummary').innerHTML=Object.keys(by).length?Object.entries(by).map(([s,v])=>`<span class="pill">${esc(s)}: ${usd(v)}</span>`).join(''):'<p class="mini">Belum ada income bulan ini.</p>';toggleOtherSource();updateDashboard()}
+function weekKeys(){return weekKeysForDate(day());}
+function monthKeys(){
+  let d0=new Date(day()+'T12:00:00');
+  let y=d0.getFullYear(), m=d0.getMonth(), arr=[];
+  for(let i=1;i<=31;i++){
+    let dd=new Date(y,m,i,12,0,0);
+    if(dd.getMonth()!=m)break;
+    arr.push(localDateKey(dd));
+  }
+  return arr;
+}
+function calculateStreak(){
+  let count=0;
+  let dt=new Date(day());
+  for(let i=0;i<365;i++){
+    let key=dt.toISOString().slice(0,10);
+    let data=state.days[key];
+    let any=data && state.habits.some(h=>data.checks && data.checks[h.id]);
+    if(any){count++; dt.setDate(dt.getDate()-1);} else break;
+  }
+  return count;
+}
+function getLastMonths(n=6){let base=new Date(day());let arr=[];for(let i=n-1;i>=0;i--){let d=new Date(base.getFullYear(),base.getMonth()-i,1);arr.push(d.toISOString().slice(0,7));}return arr;}
+function monthLabel(m){let [y,mo]=m.split('-').map(Number);return new Date(y,mo-1,1).toLocaleDateString('id-ID',{month:'short'});}
+function monthlyIncomeValue(month){return state.income.filter(r=>r.month===month).reduce((s,r)=>s+(+r.amt||0),0)}
+function monthlyUploadValue(month){
+  // Sum from uploadDaily for that month
+  let total=0;
+  if(state.uploadDaily){
+    Object.entries(state.uploadDaily).filter(([k])=>k.startsWith(month)).forEach(([_,sites])=>{
+      (sites||[]).forEach(s=>{ total+=(+s.uploaded||0); });
+    });
+  }
+  // fallback to uploadToday per day
+  if(!total){
+    total=Object.entries(state.days).filter(([k])=>k.startsWith(month)).reduce((s,[_,v])=>s+Number(v.uploadToday||0),0);
+  }
+  return total;
+}
+function drawBarChart(canvasId, labels, values, prefix=''){
+  let c=$(canvasId); if(!c||!c.getContext)return; let ctx=c.getContext('2d'); let w=c.width=c.clientWidth*devicePixelRatio; let h=c.height=c.clientHeight*devicePixelRatio; ctx.scale(devicePixelRatio,devicePixelRatio); w=c.clientWidth; h=c.clientHeight; ctx.clearRect(0,0,w,h);
+  let dark=document.documentElement.classList.contains('body-dark'); let ink=dark?'#f9fafb':'#261d35', muted=dark?'#cbd5e1':'#786b8d', grid=dark?'#374151':'#eadfff'; let max=Math.max(1,...values); let pad=34, bottom=32, top=18; let bw=(w-pad-12)/values.length*0.58; ctx.font='12px system-ui'; ctx.strokeStyle=grid; ctx.lineWidth=1; for(let i=0;i<4;i++){let y=top+(h-bottom-top)*i/3;ctx.beginPath();ctx.moveTo(pad,y);ctx.lineTo(w-8,y);ctx.stroke();}
+  values.forEach((v,i)=>{let x=pad+(w-pad-12)*(i+0.5)/values.length-bw/2;let barH=(h-bottom-top)*(v/max);let y=h-bottom-barH;let g=ctx.createLinearGradient(0,y,0,h-bottom);g.addColorStop(0,'#8b5cf6');g.addColorStop(1,'#f472b6');ctx.fillStyle=g;roundRect(ctx,x,y,bw,barH,7);ctx.fill();ctx.fillStyle=muted;ctx.textAlign='center';ctx.fillText(labels[i],x+bw/2,h-10);ctx.fillStyle=ink;ctx.font='11px system-ui';ctx.fillText(prefix+compact(v),x+bw/2,Math.max(12,y-6));ctx.font='12px system-ui';});
+}
+function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h);ctx.lineTo(x,y+h);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+function compact(n){n=Number(n||0);return n>=1000?(n/1000).toFixed(n>=10000?0:1)+'k':String(Math.round(n));}
+function renderCharts(){let months=getLastMonths(6), labels=months.map(monthLabel);drawBarChart('incomeChart',labels,months.map(monthlyIncomeValue),'$');drawBarChart('uploadChart',labels,months.map(monthlyUploadValue),'');}
+function moodEmoji(v){return String(v||'').split(' ')[0]||''}
+function localDateKey(dt){
+  const y=dt.getFullYear();
+  const m=String(dt.getMonth()+1).padStart(2,'0');
+  const d=String(dt.getDate()).padStart(2,'0');
+  return `${y}-${m}-${d}`;
+}
+function todayKey(){return localDateKey(new Date())}
+function renderCalendarInto(id){
+  let box=$(id); 
+  if(!box)return; 
+  let d0=new Date(day()+'T12:00:00'), y=d0.getFullYear(), m=d0.getMonth();
+  let first=new Date(y,m,1,12,0,0);
+  let start=first.getDay(); // 0 = Minggu, 1 = Senin, dst.
+  let days=new Date(y,m+1,0,12,0,0).getDate();
+
+  // Kalender Indonesia: Minggu dulu, lalu Senin - Sabtu
+  let html=['Min','Sen','Sel','Rab','Kam','Jum','Sab']
+    .map(x=>`<div class="cal-head">${x}</div>`).join('');
+
+  for(let i=0;i<start;i++) html+='<div class="cal-day empty"></div>';
+
+  for(let dnum=1; dnum<=days; dnum++){
+    let key=localDateKey(new Date(y,m,dnum,12,0,0));
+    let data=state.days[key]||{};
+    let done=state.habits.filter(h=>data.checks&&data.checks[h.id]).length;
+    let pct=state.habits.length?Math.round(done/state.habits.length*100):0;
+    let todayCls=key===todayKey()?' today':'';
+    let selectedCls=key===(($('moodDate')&&$('moodDate').value)||day())?' selected':'';
+    let mood=data.mood?`<div class="cal-mood">${moodEmoji(data.mood)}</div>`:'';
+
+    html+=`<div class="cal-day${todayCls}${selectedCls}" onclick="selectMoodDate('${key}')">
+      <div class="row between" style="gap:2px">
+        <div class="cal-num">${dnum}</div>${mood}
+      </div>
+      <div class="cal-dot"><div class="cal-fill" style="width:${pct}%"></div></div>
+      <div class="cal-meta">${done}/${state.habits.length}${data.mood?' · '+data.mood:''}</div>
+    </div>`;
+  }
+  box.innerHTML=html;
+}
+function selectMoodDate(key){if($('moodDate'))$('moodDate').value=key;loadMoodForDate(key);renderCalendar()}
+function loadMoodForDate(key){let data=state.days[key]||{};if($('calendarMoodSelect'))$('calendarMoodSelect').value=data.mood||'';renderCalendar()}
+function setMoodForDate(){let key=($('moodDate')&&$('moodDate').value)||day();if(!key)return;if(!state.days[key])state.days[key]={checks:{},todos:[]};state.days[key].mood=$('calendarMoodSelect').value;if(key===day() && $('mood'))$('mood').value=state.days[key].mood||'😐 Biasa';persist();updateDashboard()}
+function renderCalendar(){if($('moodDate')&&!$('moodDate').value)$('moodDate').value=day();if($('calendarMoodSelect')&&$('moodDate'))$('calendarMoodSelect').value=(state.days[$('moodDate').value]||{}).mood||'';renderCalendarInto('calendarView');renderCalendarInto('calendarViewFull')}
+function calcMonthlyUploadFromDaily(){
+  // Sum all uploaded values from uploadDaily for every day in current month
+  const mk=monthKeys();
+  const month=day().slice(0,7);
+  let total=0;
+  if(state.uploadDaily){
+    mk.forEach(k=>{
+      const sites=state.uploadDaily[k]||[];
+      sites.forEach(s=>{ total+=(+s.uploaded||0); });
+    });
+  }
+  // fallback: sum uploadToday field per day
+  if(!total){
+    total=mk.reduce((s,k)=>s+Number((state.days[k]||{}).uploadToday||0),0);
+  }
+  return total;
+}
+function updateDashboard(){syncUploadTodayFromSites(false);let x=d(),done=state.habits.filter(h=>x.checks[h.id]).length,total=state.habits.length,hp=total?Math.round(done/total*100):0,td=x.todos.filter(t=>t.done).length,tt=x.todos.length,tp=tt?Math.round(td/tt*100):0;let mk=monthKeys(),monthlyUpload=calcMonthlyUploadFromDaily();let siteUploaded=state.uploadSites.reduce((s,a)=>s+(+a.uploaded||0),0);let month=day().slice(0,7),incomeMonth=state.income.filter(r=>r.month===month).reduce((s,r)=>s+(+r.amt||0),0);let weeklyProgress=calcWeeklyUploadFromDaily(),weekInfo=w(),target=Number(getWeeklyTargetValue()||0);let week=weeklyProgress;let streak=calculateStreak();if($('dashHabit')){$('dashHabit').textContent=hp+'%';$('dashHabitBar').style.width=hp+'%';$('dashTodo').textContent=td+'/'+tt;$('dashTodoBar').style.width=tp+'%';$('dashUploadMonth').textContent=monthlyUpload||siteUploaded;$('dashIncome').textContent=usd(incomeMonth);if($('dashStreak'))$('dashStreak').textContent=streak+' hari';if($('dashBooks'))$('dashBooks').textContent=state.books.length;if($('dashProducts'))$('dashProducts').textContent=state.products.filter(p=>p[1]=='Dijual').length;if($('dashGpts'))$('dashGpts').textContent=state.gpts.length;$('summary').innerHTML=`<p><b>${done}/${total}</b> habit selesai.</p><p><b>${td}/${tt}</b> todo selesai.</p><p><b>${monthlyUpload||siteUploaded}</b> upload bulan ini.</p><p><b>${streak}</b> hari habit streak.</p><p><b>${x.mood||'😐 Biasa'}</b> mood hari ini.</p><p><b>${state.products.length}</b> produk & <b>${state.gpts.length}</b> GPT tercatat.</p>`;if($('weeklyBox')){let wk=weekKeys();$('weeklyBox').innerHTML=`<span class="pill">Periode: ${wk[0]} s/d ${wk[6]}</span><span class="pill">Upload minggu ini: ${weeklyProgress}</span><span class="pill">Target: ${target}</span><span class="pill">Progress: ${target?Math.min(100,Math.round(weeklyProgress/target*100)):0}%</span>`}}let pages=mk.reduce((s,k)=>s+Number((state.days[k]||{}).pagesToday||0),0),productLaunch=state.products.filter(p=>p[1]=='Dijual').length;let mm=m();if($('monthlyBox'))$('monthlyBox').innerHTML=goalLine('Upload',monthlyUpload||siteUploaded,Number(mm.monthlyUploadGoal||state.profile.uploadGoal||0))+goalLine('Income',incomeMonth,Number(mm.monthlyIncomeGoal||state.profile.incomeGoal||0),true)+goalLine('Produk Launch',productLaunch,Number(mm.monthlyProductGoal||0))+goalLine('Halaman Baca',pages,Number(mm.monthlyReadingGoal||0));if($('weeklyReviewBox'))$('weeklyReviewBox').innerHTML=`<span class="pill">Periode: ${weekKeys()[0]} s/d ${weekKeys()[6]}</span><span class="pill">Upload: ${siteUploaded||week}/${target||0}</span><span class="pill">Income: ${usd(incomeMonth)}</span><span class="pill">Todo: ${td}/${tt}</span>`;$('sideStats').innerHTML=`<span class="pill">💰 ${usd(incomeMonth)}</span><span class="pill">📈 ${monthlyUpload||siteUploaded} Upload</span><span class="pill">🔥 ${streak} hari</span><span class="pill">📚 ${state.books.length} Buku</span>`;renderCharts();renderCalendar();}
+
+function monthlyProgressBar(label,value,goal,unit='',money=false){
+  let pct=goal?Math.min(100,Math.round(value/goal*100)):0;
+  let valueText=money?usd(value):value;
+  let goalText=money?usd(goal):goal;
+  return `<div class="monthly-progress-row">
+    <div class="monthly-progress-head"><span>${label}</span><span>${pct}%</span></div>
+    <div class="progress"><div class="bar" style="width:${pct}%"></div></div>
+    <div class="monthly-progress-sub">${valueText} / ${goalText||0} ${unit}</div>
+  </div>`;
+}
+
+function goalLine(name,val,goal,money=false){let pct=goal?Math.min(100,Math.round(val/goal*100)):0;return `<div style="margin-bottom:13px"><div class="row between"><b>${name}</b><span class="mini">${money?usd(val):val} / ${money?usd(goal):goal||0}</span></div><div class="progress"><div class="bar" style="width:${pct}%"></div></div><span class="pill">${pct}%</span></div>`}
+function exportJSON(){dl(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),'digital-creator-os-final-backup.json')}function exportCSV(){let rows=[['date','habit_done','habit_total','todo_done','todo_total','upload_today','pages_today','mood','focus']];Object.keys(state.days).sort().forEach(k=>{let x=state.days[k];rows.push([k,Object.values(x.checks||{}).filter(Boolean).length,state.habits.length,(x.todos||[]).filter(t=>t.done).length,(x.todos||[]).length,x.uploadToday||0,x.pagesToday||0,(x.mood||''),(x.focus||'').replaceAll(',',' ')])});dl(new Blob([rows.map(r=>r.join(',')).join('\n')],{type:'text/csv'}),'digital-creator-os-final-summary.csv')}function dl(blob,name){let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click()}function handleImportFile(input){let file=input.files[0];if(!file)return;let r=new FileReader();r.onload=e=>{try{let data=JSON.parse(e.target.result);if(!data.days||!data.habits)throw 0;if(confirm('Data saat ini akan diganti. Lanjutkan?')){state=data;persist();location.reload()}}catch{alert('File JSON tidak valid')}};r.readAsText(file)}function resetAll(){if(confirm('Reset semua data?')){localStorage.removeItem('dcos_final_sidebar');location.reload()}}
+
+function logoutToWelcome(){
+  if(!confirm('Keluar dari profil dan kembali ke popup Selamat Datang? Data tracker tetap aman.')) return;
+  if(!state.profile) state.profile={};
+  state.profile.name='';
+  persist();
+  loadProfile();
+  $('welcomeName').value='';
+  $('welcomeIncomeGoal').value=state.profile?.incomeGoal||500;
+  $('welcomeUploadGoal').value=state.profile?.uploadGoal||5000;
+  $('welcomeNiche').value=state.profile?.niche||'Microstock & Produk Digital';
+  $('welcomeModal').classList.add('show');
+  setTimeout(()=>$('welcomeName').focus(),120);
+}
+
+function showWelcomeIfNeeded(){
+  if(!state.profile || !String(state.profile.name||'').trim()){
+    $('welcomeName').value=state.profile?.name||'';
+    $('welcomeIncomeGoal').value=state.profile?.incomeGoal||500;
+    $('welcomeUploadGoal').value=state.profile?.uploadGoal||5000;
+    $('welcomeNiche').value=state.profile?.niche||'Microstock & Produk Digital';
+    $('welcomeModal').classList.add('show');
+  }
+}
+
+function saveWelcomeProfile(){
+  let name=$('welcomeName').value.trim();
+  if(!name){$('welcomeName').focus();return;}
+  state.profile={
+    name,
+    incomeGoal:Number($('welcomeIncomeGoal').value||0),
+    uploadGoal:Number($('welcomeUploadGoal').value||0),
+    niche:$('welcomeNiche').value.trim()||'Microstock & Produk Digital'
+  };
+  persist();
+  loadProfile();
+  updateDashboard();
+  $('welcomeModal').classList.remove('show');
+  showProfileSaved();
+  const firstNav=document.querySelector('#navButtons button'); if(firstNav) tab('dashboard', firstNav);
+}
+
+
+
+function toggleDarkMode(){state.darkMode=!state.darkMode;persist();document.documentElement.classList.toggle('body-dark',!!state.darkMode);renderCharts();}
+function exportPDFReport(){
+  let month=day().slice(0,7); let income=monthlyIncomeValue(month); let upload=monthlyUploadValue(month); let streak=calculateStreak();
+  let report=`Digital Creator OS Report
+
+Nama: ${state.profile.name||'Pengguna'}
+Bulan: ${month}
+Income Bulan Ini: ${usd(income)}
+Upload Bulan Ini: ${upload}
+Habit Streak: ${streak} hari
+Produk Dijual: ${state.products.filter(p=>p[1]=='Dijual').length}
+GPT Tercatat: ${state.gpts.length}
+Buku Tercatat: ${state.books.length}
+`;
+  let w=window.open('', '_blank');
+  w.document.write(`<html><head><title>Digital Creator OS Report</title><style>body{font-family:system-ui;padding:28px;color:#111}h1{margin:0 0 8px}.box{border:1px solid #ddd;border-radius:14px;padding:16px;margin:12px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.big{font-size:28px;font-weight:900}@media print{button{display:none}}
+/* Custom Habit Tracker layout */
+.habit-layout-card{display:block}.habit-title-block{display:grid;gap:10px}.habit-title-block h2{margin-bottom:0}.habit-date-block{display:grid;gap:6px;font-weight:850;color:var(--ink)}.habit-date-block span{font-size:13px;color:var(--muted);font-weight:900}.habit-date-block input{max-width:220px}.habit-add-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}.habit-divider{height:1px;background:var(--line);margin:14px 0}.habit-progress-card{position:relative;top:auto;z-index:1}.habit-progress-head span:first-child{font-size:13px;font-weight:900}.habit-progress-head span:last-child{font-size:19px;color:var(--brand);font-weight:950}
+@media(max-width:560px){.habit-add-row{grid-template-columns:1fr}.habit-date-block input{max-width:none}.habit-progress-card{padding:11px}.habit-divider{margin:12px 0}}
+
+
+/* === Habit Tracker Custom Layout + Drag Reorder === */
+.habit-layout-card .habit-top-actions{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:12px;
+}
+.habit-separator{
+  height:1px;
+  background:var(--line);
+  margin:14px 0;
+}
+.habit-date-block{
+  margin-top:12px;
+}
+.habit-date-block label{
+  display:block;
+  font-size:13px;
+  color:var(--muted);
+  font-weight:800;
+  margin-bottom:6px;
+}
+.habit-card{
+  touch-action:none;
+}
+.habit-drag{
+  width:28px;
+  min-width:28px;
+  height:34px;
+  border-radius:10px;
+  background:var(--soft);
+  color:#6d28d9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  cursor:grab;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.habit-card.dragging{
+  opacity:.55;
+  transform:scale(.98);
+  border-style:dashed;
+}
+.habit-card{
+  grid-template-columns:auto auto 1fr auto!important;
+}
+@media(max-width:520px){
+  .habit-layout-card .habit-top-actions button{width:100%}
+  .habit-card{gap:8px!important}
+  .habit-drag{width:24px;min-width:24px;height:32px;font-size:13px}
+}
+
+
+/* === Habit order buttons fallback for mobile === */
+.habit-order-actions{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.habit-order-btn{
+  width:30px;
+  height:26px;
+  min-height:26px;
+  padding:0;
+  border-radius:9px;
+  background:var(--soft)!important;
+  color:#6d28d9!important;
+  font-size:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.habit-card{
+  grid-template-columns:auto auto 1fr auto!important;
+}
+@media(max-width:520px){
+  .habit-order-btn{width:28px;height:24px;min-height:24px}
+}
+
+
+/* === Todo order buttons === */
+.todo-order-actions{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.todo-order-btn{
+  width:30px;
+  height:26px;
+  min-height:26px;
+  padding:0;
+  border-radius:9px;
+  background:var(--soft)!important;
+  color:#6d28d9!important;
+  font-size:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.todo{
+  grid-template-columns:auto auto 1fr auto!important;
+}
+@media(max-width:520px){
+  .todo-order-btn{width:28px;height:24px;min-height:24px}
+}
+
+
+/* === Stable Order UI for Habit & Todo === */
+.habit-card,.todo{
+  grid-template-columns:auto auto 1fr auto!important;
+  align-items:center!important;
+}
+.habit-order-actions,.todo-order-actions{
+  display:flex; flex-direction:column; gap:4px;
+}
+.habit-order-btn,.todo-order-btn{
+  width:30px; height:26px; min-height:26px; padding:0;
+  border-radius:9px; background:var(--soft)!important; color:#6d28d9!important;
+  font-size:13px; display:flex; align-items:center; justify-content:center;
+}
+.copy-btn{
+  margin-top:8px;
+  width:100%;
+}
+@media(max-width:520px){
+  .habit-order-btn,.todo-order-btn{width:28px;height:24px;min-height:24px}
+}
+
+
+/* === Long press reorder mode for Habit & Todo === */
+.habit-order-actions,
+.todo-order-actions{
+  display:none!important;
+}
+.habit-card.reorder-mode .habit-order-actions,
+.todo.reorder-mode .todo-order-actions{
+  display:flex!important;
+}
+.habit-card.reorder-mode,
+.todo.reorder-mode{
+  outline:2px solid var(--brand);
+  background:#faf5ff!important;
+}
+.reorder-hint{
+  display:inline-block;
+  margin-top:6px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+
+/* === Long press drag & drop reorder only === */
+.habit-order-actions,
+.todo-order-actions{
+  display:none!important;
+}
+.habit-card.drag-ready,
+.todo.drag-ready{
+  outline:2px dashed var(--brand);
+  background:#faf5ff!important;
+  cursor:grab;
+}
+.habit-card.dragging,
+.todo.dragging{
+  opacity:.6;
+  transform:scale(.98);
+}
+.drag-toast{
+  position:fixed;
+  left:50%;
+  bottom:22px;
+  transform:translateX(-50%);
+  background:#261d35;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+  z-index:999;
+  display:none;
+  box-shadow:0 10px 30px #0003;
+}
+.drag-toast.show{display:block;}
+
+
+.habit-card{grid-template-columns:auto auto 1fr auto!important;}
+.todo{grid-template-columns:auto auto 1fr auto!important;}
+
+
+/* === Upload date daily reset === */
+.upload-date-row{
+  display:flex;
+  gap:10px;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+}
+.upload-date-row label{
+  flex:1;
+  min-width:180px;
+}
+.upload-date-row button{
+  min-width:140px;
+}
+
+
+/* === Weekly upload progress bar === */
+.weekly-upload-progress{
+  margin-top:12px;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+}
+.weekly-upload-progress .weekly-row{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  align-items:center;
+  margin-bottom:8px;
+  font-size:13px;
+  font-weight:900;
+}
+.weekly-upload-progress .weekly-detail{
+  margin-top:8px;
+  font-size:12px;
+  color:var(--muted);
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+
+/* === Monthly goal progress bars === */
+.monthly-progress-card{
+  margin-top:12px;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+}
+.monthly-progress-row{
+  margin-bottom:14px;
+}
+.monthly-progress-row:last-child{
+  margin-bottom:0;
+}
+.monthly-progress-head{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  align-items:center;
+  margin-bottom:7px;
+  font-size:13px;
+  font-weight:900;
+}
+.monthly-progress-sub{
+  margin-top:6px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+
+/* === Desktop hover handle + Mobile long press drag === */
+.todo-drag-handle,
+.habit-drag-handle{
+  width:30px;
+  min-width:30px;
+  height:34px;
+  border-radius:10px;
+  background:var(--soft);
+  color:#6d28d9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:950;
+  cursor:grab;
+  user-select:none;
+  -webkit-user-select:none;
+  opacity:0;
+  transform:scale(.92);
+  transition:.16s ease;
+}
+.todo:hover .todo-drag-handle,
+.habit-card:hover .habit-drag-handle{
+  opacity:1;
+  transform:scale(1);
+}
+.todo.drag-ready .todo-drag-handle,
+.habit-card.drag-ready .habit-drag-handle,
+.todo.dragging .todo-drag-handle,
+.habit-card.dragging .habit-drag-handle{
+  opacity:1;
+  transform:scale(1);
+}
+.todo.dragging,
+.habit-card.dragging{
+  opacity:.58;
+  border-style:dashed;
+}
+.todo,
+.habit-card{
+  grid-template-columns:auto auto 1fr auto!important;
+}
+@media(max-width:700px){
+  .todo-drag-handle,
+  .habit-drag-handle{
+    opacity:0;
+    width:24px;
+    min-width:24px;
+    height:30px;
+    font-size:12px;
+  }
+  .todo.drag-ready .todo-drag-handle,
+  .habit-card.drag-ready .habit-drag-handle,
+  .todo.dragging .todo-drag-handle,
+  .habit-card.dragging .habit-drag-handle{
+    opacity:1;
+  }
+}
+
+
+/* === Stable native desktop DnD + mobile long press DnD === */
+.habit-drag-handle,.todo-drag-handle{
+  width:30px; min-width:30px; height:34px;
+  border-radius:10px; background:var(--soft); color:#6d28d9;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:950; cursor:grab; user-select:none; -webkit-user-select:none;
+  opacity:0; transform:scale(.92); transition:.16s ease;
+}
+.habit-card:hover .habit-drag-handle,.todo:hover .todo-drag-handle,
+.habit-card.drag-ready .habit-drag-handle,.todo.drag-ready .todo-drag-handle,
+.habit-card.dragging .habit-drag-handle,.todo.dragging .todo-drag-handle{
+  opacity:1; transform:scale(1);
+}
+.habit-card,.todo{grid-template-columns:auto auto 1fr auto!important;align-items:center!important}
+.habit-card.dragging,.todo.dragging{opacity:.55;border-style:dashed}
+.habit-card.drag-over,.todo.drag-over{outline:2px dashed var(--brand);background:#faf5ff!important}
+@media(max-width:700px){
+  .habit-drag-handle,.todo-drag-handle{opacity:0;width:24px;min-width:24px;height:30px;font-size:12px}
+}
+
+
+/* === FINAL CLEAN: Todo & Habit grid + drag handle === */
+.habit-card,.todo{
+  grid-template-columns:auto auto 1fr auto!important;
+  align-items:center!important;
+  gap:8px!important;
+}
+.habit-drag-handle,.todo-drag-handle{
+  width:32px!important;
+  min-width:32px!important;
+  height:36px!important;
+  border-radius:10px!important;
+  background:var(--soft)!important;
+  color:#6d28d9!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-weight:950!important;
+  cursor:grab!important;
+  user-select:none!important;
+  -webkit-user-select:none!important;
+  opacity:.35;
+  transition:.15s ease;
+  flex-shrink:0!important;
+}
+.habit-card:hover .habit-drag-handle,
+.todo:hover .todo-drag-handle,
+.habit-card.dragging .habit-drag-handle,
+.todo.dragging .todo-drag-handle,
+.habit-card.drag-ready .habit-drag-handle,
+.todo.drag-ready .todo-drag-handle{
+  opacity:1;
+}
+.habit-card.dragging,.todo.dragging{
+  opacity:.55!important;
+  border-style:dashed!important;
+  background:#faf5ff!important;
+}
+/* Todo text input must fill available space */
+.todo input[type="text"],.todo .todo-text-input{
+  min-width:0!important;
+  width:100%!important;
+  flex:1!important;
+}
+@media(max-width:700px){
+  .habit-drag-handle,.todo-drag-handle{
+    width:26px!important;
+    min-width:26px!important;
+    height:32px!important;
+    font-size:12px!important;
+    opacity:.3;
+  }
+}
+
+</style></head><body><h1>Digital Creator OS Report</h1><p>${state.profile.name||'Pengguna'} • ${month}</p><div class="grid"><div class="box"><div>Income Bulan Ini</div><div class="big">${usd(income)}</div></div><div class="box"><div>Upload Bulan Ini</div><div class="big">${upload}</div></div><div class="box"><div>Habit Streak</div><div class="big">${streak} hari</div></div><div class="box"><div>Produk Dijual</div><div class="big">${state.products.filter(p=>p[1]=='Dijual').length}</div></div></div><div class="box"><h2>Ringkasan</h2><pre>${report}</pre></div><button onclick="window.print()">Simpan sebagai PDF</button><script>setTimeout(()=>window.print(),400)<\/script></body></html>`);
+  w.document.close();
+}
+
+$('incomeMonth').addEventListener('change',renderIncome);initNav();loadProfile();applySidebarPin();renderAll();setTimeout(showWelcomeIfNeeded,150);
+</script>
+</body>
+</html>
+
