@@ -1231,7 +1231,17 @@ function getSiteEmoji(name){return {'Canva':'🎨','Adobe Stock':'🅰','Magnifi
 function renderUploadSites(){let box=$('uploadSiteList');if(!box)return;box.innerHTML=uploadDay().map((s,i)=>{let up=+s.uploaded||0,tg=+s.target||0,ap=+s.approved||0,rej=+s.rejected||0,pend=Math.max(0,up-ap-rej),p=tg?Math.min(100,Math.round(up/tg*100)):0;return `<div class="site-card"><div class="site-card-header"><div class="site-name-wrap"><div class="site-emoji">${getSiteEmoji(s.name)}</div><input class="site-title-input" value="${esc(s.name)}" data-i="${i}" data-f="name" placeholder="Custom Source"></div><button class="danger" onclick="delUploadSite(${i})">Hapus</button></div><div class="site-fields"><div class="site-field"><label>Target</label><input type="number" value="${tg}" data-i="${i}" data-f="target"></div><div class="site-field"><label>Uploaded</label><input type="number" value="${up}" data-i="${i}" data-f="uploaded"></div><div class="site-field"><label>Approved</label><input type="number" value="${ap}" data-i="${i}" data-f="approved"></div><div class="site-field"><label>Rejected</label><input type="number" value="${rej}" data-i="${i}" data-f="rejected"></div></div><div class="site-progress-label"><span>${up} dari ${tg}</span><b>${p}%</b></div><div class="site-bar-bg"><div class="site-bar-fill" style="width:${p}%"></div></div><div class="site-badges"><span class="site-badge badge-up">📤 ${up}</span><span class="site-badge badge-ok">✅ ${ap}</span><span class="site-badge badge-rej">❌ ${rej}</span><span class="site-badge badge-pend">⏳ ${pend}</span></div></div>`}).join('');document.querySelectorAll('.site-card input').forEach(e=>e.oninput=function(){let i=+this.dataset.i,f=this.dataset.f;let sites=uploadDay();if(!sites[i])return;sites[i][f]=f==='name'?this.value:Number(this.value||0);renderUploadTotals(true);persist();updateDashboard();});renderUploadTotals(false)}
 function addUploadSite(){uploadDay().push({name:'Custom Source',target:0,uploaded:0,approved:0,rejected:0});persist();renderUploadSites()}function delUploadSite(i){if(confirm('Hapus situs ini?')){state.uploadSites.splice(i,1);persist();renderUploadSites();if($('habitDate')) $('habitDate').value=day();if($('uploadDate') && !$('uploadDate').value) $('uploadDate').value=day();updateDashboard()}}
 function getUploadTotals(){return uploadDay().reduce((a,b)=>({target:a.target+(+b.target||0),uploaded:a.uploaded+(+b.uploaded||0),approved:a.approved+(+b.approved||0),rejected:a.rejected+(+b.rejected||0)}),{target:0,uploaded:0,approved:0,rejected:0})}
-function syncUploadTodayFromSites(forceSync=false){let t=getUploadTotals(),x=d();if(forceSync){x.uploadToday=Number(t.uploaded||0);x.approvedToday=Number(t.approved||0);x.rejectedToday=Number(t.rejected||0);if($('uploadToday'))$('uploadToday').value=x.uploadToday;if($('approvedToday'))$('approvedToday').value=x.approvedToday;if($('rejectedToday'))$('rejectedToday').value=x.rejectedToday;}return t}
+function syncUploadTodayFromSites(forceSync=false){
+  let t=getUploadTotals(), x=d();
+  // Always sync totals into day state and UI fields (not just on forceSync)
+  x.uploadToday=Number(t.uploaded||0);
+  x.approvedToday=Number(t.approved||0);
+  x.rejectedToday=Number(t.rejected||0);
+  if($('uploadToday'))   $('uploadToday').value=x.uploadToday;
+  if($('approvedToday')) $('approvedToday').value=x.approvedToday;
+  if($('rejectedToday')) $('rejectedToday').value=x.rejectedToday;
+  return t;
+}
 function calcWeeklyUploadFromDaily(){
   // Sum uploaded field across all days in current week from uploadDaily
   const wk=weekKeys();
