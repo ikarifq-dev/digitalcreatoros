@@ -798,13 +798,6 @@ body.sidebar-collapsed .hamb{display:none!important;}
   <!-- Stats bar -->
   <div class="gdrive-stat-row" id="gdriveStats" style="display:none"></div>
 
-  <!-- Total progress -->
-  <div class="gdrive-progress-row" id="gdriveProgressWrap" style="display:none">
-    <span class="mini" style="white-space:nowrap">Platform selesai hari ini</span>
-    <div class="gdrive-progress-bar"><div class="gdrive-progress-fill" id="gdriveProgressFill"></div></div>
-    <span class="mini" id="gdriveProgressText" style="white-space:nowrap;font-weight:900;color:var(--brand)">0/0</span>
-  </div>
-
   <!-- Add form -->
   <div class="gdrive-add-form" id="gdriveAddForm">
     <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
@@ -1595,7 +1588,6 @@ function updateGdriveStats(){
     statsEl.innerHTML=`
       <div class="gdrive-stat-pill"><span>${allDoneFolders}</span>Tema Selesai</div>
       <div class="gdrive-stat-pill"><span>${folders.length-allDoneFolders}</span>Belum</div>
-      <div class="gdrive-stat-pill"><span>${doneChips}/${totalChips}</span>Platform</div>
       <div class="gdrive-stat-pill"><span>${pct}%</span>Progress</div>`;
     statsEl.style.display='flex';
   } else if(statsEl){statsEl.style.display='none';}
