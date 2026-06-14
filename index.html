@@ -785,13 +785,11 @@ body.sidebar-collapsed .hamb{display:none!important;}
           </div>
         </div>
       </div></div>
-<div class="card"><div class="section-title"><h2>🌐 Upload per Situs</h2><button onclick="addUploadSite()">+ Tambah Custom</button></div>
-
-<!-- GDrive Folder Upload Checklist - di atas jumlah upload -->
-<div id="gdriveCard" style="margin-bottom:14px">
+<!-- GDrive Folder Upload Checklist - card tersendiri di atas Upload per Situs -->
+<div class="card" id="gdriveCard">
   <div class="gdrive-section-head">
     <div>
-      <h2 style="font-size:15px">📁 Tema Gambar &amp; Upload Checklist</h2>
+      <h2>📁 Tema Gambar &amp; Upload Checklist</h2>
       <p class="mini" style="margin:4px 0 0">Daftar tema gambar siap upload. Centang platform yang sudah diupload. Reset otomatis tiap hari baru.</p>
     </div>
     <button onclick="toggleGdriveForm()" class="secondary" id="gdriveAddBtn">＋ Tambah Tema</button>
@@ -849,8 +847,8 @@ body.sidebar-collapsed .hamb{display:none!important;}
     <button onclick="togglePlatformManager()" class="secondary" style="font-size:11px;padding:6px 10px;min-height:30px">⚙️ Kelola Platform Default</button>
   </div>
 </div>
-<div style="border-top:1px solid var(--line);margin:0 0 14px"></div>
 
+<div class="card"><div class="section-title"><h2>🌐 Upload per Situs</h2><button onclick="addUploadSite()">+ Tambah Custom</button></div>
 <div class="upload-total-bar"><div class="utb-item"><span class="utb-val" id="utbTarget">0</span><span class="utb-lbl">Target</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbUploaded">0</span><span class="utb-lbl">Upload</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbApproved">0</span><span class="utb-lbl">Approved</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbRejected">0</span><span class="utb-lbl">Rejected</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbPending">0</span><span class="utb-lbl">Pending</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbPct">0%</span><span class="utb-lbl">Progress</span></div></div>
 <div class="site-cards" id="uploadSiteList"></div><button onclick="addUploadSite()" style="width:100%;margin-top:14px">＋ Tambah Situs Custom</button>
 </div>
