@@ -175,6 +175,69 @@ body.sidebar-collapsed .hamb{display:none!important;}
 @media(max-width:520px){.chart-card canvas{height:180px}.calendar-grid{gap:4px}.cal-day{min-height:48px;border-radius:10px;padding:4px}.cal-meta{display:none}}
 @media print{.sidebar,.topbar,.shade,.welcome,.hamb,.nav,.footer,button,input,textarea,select{display:none!important}.content{margin:0!important;padding:0!important;max-width:none!important}.hidden{display:block!important}.card,.stat{box-shadow:none!important;border:1px solid #ddd!important;break-inside:avoid}.report-area{display:block!important}body{background:white!important;color:#111!important}}
 
+/* === Google Drive Upload Checklist v2 === */
+.gdrive-card-list{display:grid;gap:12px;margin-top:12px}
+.gdrive-item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 15px;transition:.15s ease}
+.gdrive-item.all-done{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-color:#86efac}
+.gdrive-item-top{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:flex-start;margin-bottom:10px}
+.gdrive-info{min-width:0}
+/* Inline rename */
+.gdrive-name-wrap{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.gdrive-name{font-weight:900;font-size:14px;line-height:1.35;cursor:text;border-radius:8px;padding:2px 4px;transition:.12s}
+.gdrive-name:hover{background:#f5f0ff}
+.gdrive-name-input{font-weight:900;font-size:14px;border:2px solid var(--brand)!important;border-radius:10px!important;padding:4px 8px!important;background:#fff!important;display:none;width:100%}
+.gdrive-name-wrap.renaming .gdrive-name{display:none}
+.gdrive-name-wrap.renaming .gdrive-name-input{display:block}
+.gdrive-theme-row{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px;align-items:center}
+.gdrive-theme-tag{background:var(--soft);color:#6d28d9;border-radius:999px;padding:2px 8px;font-size:10px;font-weight:800}
+.gdrive-note-text{font-size:11px;color:var(--muted);font-weight:700;margin-top:3px}
+/* Platform checklist per folder */
+.gdrive-platforms{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.gdrive-platform-chip{display:flex;align-items:center;gap:5px;border:1.5px solid var(--line);border-radius:999px;padding:5px 10px;font-size:12px;font-weight:800;background:#fff;cursor:pointer;transition:.12s ease;user-select:none;-webkit-user-select:none}
+.gdrive-platform-chip:hover{border-color:var(--brand);background:var(--soft)}
+.gdrive-platform-chip.checked{background:linear-gradient(135deg,var(--ok),#4ade80);border-color:#22c55e;color:#fff}
+.gdrive-platform-chip.checked .gdrive-chip-icon{filter:brightness(10)}
+.gdrive-chip-check{font-size:13px;display:none}
+.gdrive-platform-chip.checked .gdrive-chip-check{display:inline}
+.gdrive-chip-icon{font-size:14px;line-height:1}
+.gdrive-chip-label{line-height:1}
+/* Buttons top-right */
+.gdrive-item-actions{display:flex;gap:5px;flex-shrink:0}
+.gdrive-open-btn{min-width:34px;width:34px;height:34px;padding:0;border-radius:12px;background:var(--soft);color:#6d28d9;font-size:14px;display:flex;align-items:center;justify-content:center;text-decoration:none;flex-shrink:0;border:1px solid #d7c8ff}
+.gdrive-edit-btn{min-width:34px;width:34px;height:34px;padding:0;border-radius:12px;background:var(--soft);color:#6d28d9;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid #d7c8ff}
+.gdrive-del-btn{min-width:30px;width:30px;height:30px;padding:0;border-radius:50%;background:#fee2e2;color:#b91c1c;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* Inline edit panel */
+.gdrive-edit-panel{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);grid-gap:8px;grid-template-columns:1fr}
+.gdrive-item.editing .gdrive-edit-panel{display:grid}
+.gdrive-edit-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+/* Done footer */
+.gdrive-done-footer{margin-top:8px;padding-top:8px;border-top:1px solid #86efac;font-size:11px;color:#15803d;font-weight:900;display:flex;align-items:center;gap:5px}
+/* Progress */
+.gdrive-progress-row{display:flex;align-items:center;gap:10px;margin:8px 0 4px}
+.gdrive-progress-bar{flex:1;height:7px;background:#f0e8ff;border-radius:999px;overflow:hidden}
+.gdrive-progress-fill{height:100%;background:linear-gradient(90deg,var(--ok),#4ade80);border-radius:999px;transition:.3s}
+/* Stats */
+.gdrive-stat-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 4px}
+.gdrive-stat-pill{background:#fff;border:1px solid var(--line);border-radius:12px;padding:7px 12px;font-size:11px;font-weight:900;display:flex;flex-direction:column;align-items:center;min-width:58px;gap:2px}
+.gdrive-stat-pill span{font-size:17px;color:var(--brand);font-weight:950;line-height:1}
+/* Add form */
+.gdrive-add-form{background:var(--soft);border-radius:16px;padding:14px;margin-top:10px;display:none;gap:6px;flex-direction:column}
+.gdrive-add-form.show{display:flex}
+.gdrive-section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+/* Platform picker in form */
+.gdrive-platform-picker{display:flex;flex-wrap:wrap;gap:6px}
+.gdrive-pick-chip{display:flex;align-items:center;gap:5px;border:1.5px solid var(--line);border-radius:999px;padding:5px 11px;font-size:12px;font-weight:800;background:#fff;cursor:pointer;transition:.12s;user-select:none;-webkit-user-select:none}
+.gdrive-pick-chip.selected{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-color:transparent}
+.gdrive-pick-chip.del-mode{border-color:#fca5a5;background:#fee2e2;color:#b91c1c}
+/* Mobile */
+@media(max-width:600px){
+  .gdrive-edit-row{grid-template-columns:1fr}
+  .gdrive-item-top{grid-template-columns:1fr auto}
+  .gdrive-name{font-size:13px}
+  .gdrive-platform-chip{font-size:11px;padding:4px 8px}
+  .gdrive-open-btn,.gdrive-edit-btn{width:30px;min-width:30px;height:30px;font-size:13px}
+}
+
 /* GPT tracker link cards */
 .gpt-item{display:grid;grid-template-columns:1.2fr 120px 1.4fr auto auto;gap:8px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:16px;margin:8px 0;background:#fff}
 .gpt-open{background:var(--soft)!important;color:#6d28d9!important;text-decoration:none;border-radius:12px;padding:10px 12px;font-weight:900;text-align:center;display:inline-block}
@@ -689,7 +752,27 @@ body.sidebar-collapsed .hamb{display:none!important;}
           <label class="mini">📅 Tanggal Upload<input id="uploadDate" type="date" onchange="setUploadDate(this.value)"></label>
           <button class="secondary" onclick="setUploadDate(day())">Ikuti Tanggal Hari Ini</button>
         </div>
-        <p class="mini">Upload per situs tersimpan per tanggal. Saat ganti tanggal, angka per situs otomatis mengikuti data tanggal tersebut.</p><div class="two"><label>Target Mingguan Total<input id="weeklyTarget" min="0" onblur="saveWeeklyTarget()" onchange="saveWeeklyTarget()" oninput="saveWeeklyTarget()" type="number"/></label><label>Upload Hari Ini Total<input id="uploadToday" min="0" readonly="" title="Otomatis dari total Uploaded per situs" type="number"/></label><label>Approved Hari Ini<input id="approvedToday" min="0" readonly="" title="Otomatis dari total Approved per situs" type="number"/></label><label>Rejected Hari Ini<input id="rejectedToday" min="0" readonly="" title="Otomatis dari total Rejected per situs" type="number"/></label></div></div><div class="card"><h2>📊 Minggu Ini</h2><div id="weeklyBox"></div>
+        <p class="mini">Upload per situs tersimpan per tanggal. Saat ganti tanggal, angka per situs otomatis mengikuti data tanggal tersebut.</p><div class="two"><label>Target Mingguan Total<input id="weeklyTarget" min="0" onblur="saveWeeklyTarget()" onchange="saveWeeklyTarget()" oninput="saveWeeklyTarget()" type="number"/></label><label>Upload Hari Ini Total<input id="uploadToday" min="0" readonly="" title="Otomatis dari total Uploaded per situs" type="number"/></label><label>Approved Hari Ini<input id="approvedToday" min="0" readonly="" title="Otomatis dari total Approved per situs" type="number"/></label><label>Rejected Hari Ini<input id="rejectedToday" min="0" readonly="" title="Otomatis dari total Rejected per situs" type="number"/></label></div>
+
+        <!-- ════ RESET DATA MINGGUAN ════ -->
+        <div id="weeklyResetBlock" style="margin-top:14px;padding:14px;border:1.5px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#faf5ff,#fff7fb)">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+            <div>
+              <div style="font-weight:900;font-size:14px">🔄 Reset Data Mingguan</div>
+              <div class="mini" id="weeklyResetInfo" style="margin-top:3px;color:var(--muted)">Menghitung...</div>
+            </div>
+            <button class="danger" id="weeklyResetBtn" onclick="confirmWeeklyReset()" style="min-width:140px;font-size:13px">
+              🗑️ Reset Minggu Ini
+            </button>
+          </div>
+          <div class="mini" style="color:var(--muted);line-height:1.5">
+            Reset akan menghapus data <b>upload, approved, rejected per situs</b> untuk minggu berjalan saja. Data minggu lalu tetap tersimpan. Reset otomatis terjadi tiap hari <b>Minggu</b>.
+          </div>
+          <div id="weeklyResetDoneMsg" style="display:none;margin-top:8px;color:#15803d;font-weight:800;font-size:13px">✅ Data mingguan berhasil direset!</div>
+        </div>
+        <!-- ════ END RESET DATA MINGGUAN ════ -->
+
+      </div><div class="card"><h2>📊 Minggu Ini</h2><div id="weeklyBox"></div>
         <div class="weekly-upload-progress">
           <div class="weekly-row">
             <span>Progress Target Mingguan</span>
@@ -703,9 +786,75 @@ body.sidebar-collapsed .hamb{display:none!important;}
         </div>
       </div></div>
 <div class="card"><div class="section-title"><h2>🌐 Upload per Situs</h2><button onclick="addUploadSite()">+ Tambah Custom</button></div>
+
+<!-- GDrive Folder Upload Checklist - di atas jumlah upload -->
+<div id="gdriveCard" style="margin-bottom:14px">
+  <div class="gdrive-section-head">
+    <div>
+      <h2 style="font-size:15px">📁 Tema Gambar &amp; Upload Checklist</h2>
+      <p class="mini" style="margin:4px 0 0">Daftar tema gambar siap upload. Centang platform yang sudah diupload. Reset otomatis tiap hari baru.</p>
+    </div>
+    <button onclick="toggleGdriveForm()" class="secondary" id="gdriveAddBtn">＋ Tambah Tema</button>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="gdrive-stat-row" id="gdriveStats" style="display:none"></div>
+
+  <!-- Total progress -->
+  <div class="gdrive-progress-row" id="gdriveProgressWrap" style="display:none">
+    <span class="mini" style="white-space:nowrap">Platform selesai hari ini</span>
+    <div class="gdrive-progress-bar"><div class="gdrive-progress-fill" id="gdriveProgressFill"></div></div>
+    <span class="mini" id="gdriveProgressText" style="white-space:nowrap;font-weight:900;color:var(--brand)">0/0</span>
+  </div>
+
+  <!-- Add form -->
+  <div class="gdrive-add-form" id="gdriveAddForm">
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
+      <span style="font-size:12px;font-weight:900;color:var(--ink)">🎨 Nama Tema Gambar</span>
+      <span style="font-size:10px;color:#ef4444;font-weight:900">* wajib</span>
+    </div>
+    <input id="gdriveFolderName" placeholder="Contoh: Coloring Book Animals 2024" oninput="previewGdriveTheme()" style="font-weight:900"/>
+    <div id="gdriveThemePreview" style="display:none;margin:-2px 0 4px;display:flex;gap:5px;flex-wrap:wrap;align-items:center"></div>
+
+    <div style="font-size:12px;font-weight:900;color:var(--ink);margin-top:6px;margin-bottom:4px">🔗 Link Google Drive <span style="font-weight:700;color:var(--muted);font-size:11px">(opsional)</span></div>
+    <input id="gdriveFolderLink" placeholder="https://drive.google.com/drive/folders/..."/>
+
+    <div style="font-size:12px;font-weight:900;color:var(--ink);margin-top:6px;margin-bottom:4px">🏪 Platform Upload <span style="font-weight:700;color:var(--muted);font-size:11px">(pilih satu atau lebih)</span></div>
+    <div id="gdrivePlatformPicker" class="gdrive-platform-picker"></div>
+
+    <div style="font-size:12px;font-weight:900;color:var(--ink);margin-top:6px;margin-bottom:4px">📝 Catatan <span style="font-weight:700;color:var(--muted);font-size:11px">(opsional)</span></div>
+    <input id="gdriveFolderNote" placeholder="Contoh: 50 file PNG siap upload"/>
+
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <button onclick="saveGdriveFolder()" style="flex:1">✅ Simpan Tema</button>
+      <button onclick="toggleGdriveForm()" class="secondary" style="flex:1">Batal</button>
+    </div>
+  </div>
+
+  <!-- Platform manager (global) -->
+  <div id="gdrivePlatformManagerWrap" style="display:none">
+    <div style="border-top:1px solid var(--line);margin:10px 0 8px"></div>
+    <div style="font-size:12px;font-weight:900;color:var(--muted);margin-bottom:6px">⚙️ Kelola Platform Default</div>
+    <div id="gdrivePlatformManagerList" class="gdrive-platform-picker"></div>
+    <div style="display:flex;gap:6px;margin-top:6px">
+      <input id="gdriveNewPlatformName" placeholder="Nama platform baru" style="flex:1;font-size:13px" onkeydown="if(event.key==='Enter'){addGlobalPlatform();event.preventDefault()}"/>
+      <button onclick="addGlobalPlatform()" class="secondary" style="min-width:80px;font-size:12px">＋ Tambah</button>
+    </div>
+  </div>
+
+  <!-- Folder list -->
+  <div class="gdrive-card-list" id="gdriveList"></div>
+  <p class="mini" id="gdriveEmpty" style="text-align:center;padding:20px 0;color:var(--muted)">Belum ada tema gambar. Klik <b>＋ Tambah Tema</b> untuk mulai.</p>
+  <div style="text-align:right;margin-top:6px">
+    <button onclick="togglePlatformManager()" class="secondary" style="font-size:11px;padding:6px 10px;min-height:30px">⚙️ Kelola Platform Default</button>
+  </div>
+</div>
+<div style="border-top:1px solid var(--line);margin:0 0 14px"></div>
+
 <div class="upload-total-bar"><div class="utb-item"><span class="utb-val" id="utbTarget">0</span><span class="utb-lbl">Target</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbUploaded">0</span><span class="utb-lbl">Upload</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbApproved">0</span><span class="utb-lbl">Approved</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbRejected">0</span><span class="utb-lbl">Rejected</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbPending">0</span><span class="utb-lbl">Pending</span></div><div class="utb-div"></div><div class="utb-item"><span class="utb-val" id="utbPct">0%</span><span class="utb-lbl">Progress</span></div></div>
 <div class="site-cards" id="uploadSiteList"></div><button onclick="addUploadSite()" style="width:100%;margin-top:14px">＋ Tambah Situs Custom</button>
 </div>
+
 </section>
 <section class="hidden" id="income"><div class="grid"><div class="card"><h2>💰 Income Tracker</h2><p class="mini">Default: Canva, Adobe Stock, Magnific. Sumber lain bisa Custom.</p><div class="two"><label>Bulan<input id="incomeMonth" type="month"/></label><label>Sumber<select id="incomeSource" onchange="toggleOtherSource()"><option>Canva</option><option>Adobe Stock</option><option>Magnific</option><option>Custom Source (+)</option></select></label><label class="hidden" id="incomeOtherWrap">Sumber lainnya<input id="incomeOther" placeholder="Contoh: Freepik"/></label><label>Income USD<input id="incomeAmount" min="0" step="0.01" type="number"/></label><button onclick="addIncome()">Tambah Income</button></div><table><thead><tr><th>Bulan</th><th>Sumber</th><th>Income USD</th><th></th></tr></thead><tbody id="incomeTable"></tbody></table></div><div class="card"><h2>📊 Ringkasan Income</h2><div class="stat"><span class="mini">Total bulan dipilih</span><b id="incomeMonthTotal">$0.00</b></div><br/><div class="stat"><span class="mini">Total semua data</span><b id="incomeTotal">$0.00</b></div><div id="incomeSummary" style="margin-top:12px"></div></div></div></section>
 <section class="hidden" id="reading"><div class="grid"><div class="card"><div class="section-title"><h2>📚 Reading Tracker</h2><div class="mini" style="margin-bottom:10px">Tanggal Baca<input id="readingDate" onchange="save()" style="margin-top:6px" type="date"/></div><button onclick="addBook()">+ Tambah Buku</button></div><div id="bookList"></div></div><div class="card"><h2>📝 Catatan Baca Hari Ini</h2><label>Halaman dibaca hari ini<input id="pagesToday" min="0" oninput="save()" type="number"/></label><br/><label>Insight buku<textarea id="readingNote" oninput="save()"></textarea></label><button class="secondary copy-btn" onclick="copyReadingInsight()">📋 Copy Insight Buku</button></div></div></section>
@@ -729,6 +878,9 @@ if(!state.profile) state.profile={name:'',incomeGoal:500,uploadGoal:5000,niche:'
 if(!state.weeks) state.weeks={};
 if(!state.months) state.months={};
 if(!state.profile.niche) state.profile.niche='Microstock & Produk Digital';
+if(!state.gdriveFolders) state.gdriveFolders=[];
+if(!state.gdriveChecks) state.gdriveChecks={};
+if(!state.gdrivePlatforms||!state.gdrivePlatforms.length) state.gdrivePlatforms=JSON.parse(JSON.stringify([{id:'canva',label:'Canva',icon:'🎨'},{id:'freepik',label:'Freepik',icon:'🖌️'},{id:'magnific',label:'Magnific',icon:'✨'}]));
 
 if(!state.books || !Array.isArray(state.books) || state.books.length===0){
   state.books=[['Atomic Habits',320,0]];
@@ -845,7 +997,7 @@ function loadProfile(){
 }
 function save(){let x=d();syncUploadTodayFromSites(false);let ww=w(),mm=m();if($('weeklyTarget')) ww.weeklyTarget=$('weeklyTarget').value;['weeklyWin','weeklyBlock','weeklyNext'].forEach(id=>{if($(id))ww[id]=$(id).value});['monthlyUploadGoal','monthlyIncomeGoal','monthlyProductGoal','monthlyReadingGoal'].forEach(id=>{if($(id))mm[id]=$(id).value});['focus','pagesToday','readingNote','mood'].forEach(id=>{if($(id))x[id]=$(id).value});state.products=getRows('productList');state.gpts=getRows('gptList');state.books=getBooks();persist();updateDashboard()}
 function persist(){localStorage.setItem('dcos_final_sidebar',JSON.stringify(state))}
-function renderAll(){let x=d(),ww=w(),mm=m();['focus','uploadToday','approvedToday','rejectedToday','pagesToday','readingNote'].forEach(id=>{if($(id))$(id).value=x[id]||''});['weeklyWin','weeklyBlock','weeklyNext'].forEach(id=>{if($(id))$(id).value=ww[id]||''});['monthlyUploadGoal','monthlyIncomeGoal','monthlyProductGoal','monthlyReadingGoal'].forEach(id=>{if($(id))$(id).value=mm[id]||''});if($('weeklyTarget'))$('weeklyTarget').value=getWeeklyTargetValue();if($('habitDate'))$('habitDate').value=day();if($('weeklyReviewDate'))$('weeklyReviewDate').value=day();if($('monthlyGoalMonth'))$('monthlyGoalMonth').value=monthKeyFromDate(day());let wk=weekKeys();if($('weeklyPeriodLabel'))$('weeklyPeriodLabel').textContent='Periode: '+wk[0]+' s/d '+wk[6];if($('monthlyPeriodLabel'))$('monthlyPeriodLabel').textContent='Target bulan '+monthKeyFromDate(day());renderHabits();renderTodos();renderRows('productList',state.products);renderRows('gptList',state.gpts);renderBooks();renderIncome();renderUploadSites();if($('habitDate')) $('habitDate').value=day();if($('uploadDate') && !$('uploadDate').value) $('uploadDate').value=day();updateDashboard()}
+function renderAll(){let x=d(),ww=w(),mm=m();['focus','uploadToday','approvedToday','rejectedToday','pagesToday','readingNote'].forEach(id=>{if($(id))$(id).value=x[id]||''});['weeklyWin','weeklyBlock','weeklyNext'].forEach(id=>{if($(id))$(id).value=ww[id]||''});['monthlyUploadGoal','monthlyIncomeGoal','monthlyProductGoal','monthlyReadingGoal'].forEach(id=>{if($(id))$(id).value=mm[id]||''});if($('weeklyTarget'))$('weeklyTarget').value=getWeeklyTargetValue();if($('habitDate'))$('habitDate').value=day();if($('weeklyReviewDate'))$('weeklyReviewDate').value=day();if($('monthlyGoalMonth'))$('monthlyGoalMonth').value=monthKeyFromDate(day());let wk=weekKeys();if($('weeklyPeriodLabel'))$('weeklyPeriodLabel').textContent='Periode: '+wk[0]+' s/d '+wk[6];if($('monthlyPeriodLabel'))$('monthlyPeriodLabel').textContent='Target bulan '+monthKeyFromDate(day());renderHabits();renderTodos();renderRows('productList',state.products);renderRows('gptList',state.gpts);renderBooks();renderIncome();renderUploadSites();renderGdriveFolders();if($('habitDate')) $('habitDate').value=day();if($('uploadDate') && !$('uploadDate').value) $('uploadDate').value=day();updateDashboard()}
 function esc(s){return String(s||'').replace(/[&<>\"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
 function usd(n){return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(n||0))}
 function currentMonth(){return day().slice(0,7)}
@@ -1230,6 +1382,423 @@ function setUploadDate(value){
 function getSiteEmoji(name){return {'Canva':'🎨','Adobe Stock':'🅰','Magnific':'✨'}[name]||'🌐'}
 function renderUploadSites(){let box=$('uploadSiteList');if(!box)return;box.innerHTML=uploadDay().map((s,i)=>{let up=+s.uploaded||0,tg=+s.target||0,ap=+s.approved||0,rej=+s.rejected||0,pend=Math.max(0,up-ap-rej),p=tg?Math.min(100,Math.round(up/tg*100)):0;return `<div class="site-card"><div class="site-card-header"><div class="site-name-wrap"><div class="site-emoji">${getSiteEmoji(s.name)}</div><input class="site-title-input" value="${esc(s.name)}" data-i="${i}" data-f="name" placeholder="Custom Source"></div><button class="danger" onclick="delUploadSite(${i})">Hapus</button></div><div class="site-fields"><div class="site-field"><label>Target</label><input type="number" value="${tg}" data-i="${i}" data-f="target"></div><div class="site-field"><label>Uploaded</label><input type="number" value="${up}" data-i="${i}" data-f="uploaded"></div><div class="site-field"><label>Approved</label><input type="number" value="${ap}" data-i="${i}" data-f="approved"></div><div class="site-field"><label>Rejected</label><input type="number" value="${rej}" data-i="${i}" data-f="rejected"></div></div><div class="site-progress-label"><span>${up} dari ${tg}</span><b>${p}%</b></div><div class="site-bar-bg"><div class="site-bar-fill" style="width:${p}%"></div></div><div class="site-badges"><span class="site-badge badge-up">📤 ${up}</span><span class="site-badge badge-ok">✅ ${ap}</span><span class="site-badge badge-rej">❌ ${rej}</span><span class="site-badge badge-pend">⏳ ${pend}</span></div></div>`}).join('');document.querySelectorAll('.site-card input').forEach(e=>e.oninput=function(){let i=+this.dataset.i,f=this.dataset.f;let sites=uploadDay();if(!sites[i])return;sites[i][f]=f==='name'?this.value:Number(this.value||0);renderUploadTotals(true);persist();updateDashboard();});renderUploadTotals(false)}
 function addUploadSite(){uploadDay().push({name:'Custom Source',target:0,uploaded:0,approved:0,rejected:0});persist();renderUploadSites()}function delUploadSite(i){if(confirm('Hapus situs ini?')){state.uploadSites.splice(i,1);persist();renderUploadSites();if($('habitDate')) $('habitDate').value=day();if($('uploadDate') && !$('uploadDate').value) $('uploadDate').value=day();updateDashboard()}}
+
+// ═══════════════════════════════════════════════
+// GOOGLE DRIVE / TEMA GAMBAR UPLOAD CHECKLIST v2
+// ═══════════════════════════════════════════════
+
+// Platform default dengan ikon
+const DEFAULT_GDRIVE_PLATFORMS=[
+  {id:'canva',label:'Canva',icon:'🎨'},
+  {id:'adobe',label:'Adobe Stock',icon:'🅰️'},
+  {id:'magnific',label:'Magnific',icon:'✨'},
+  {id:'freepik',label:'Freepik',icon:'🖌️'},
+  {id:'shutterstock',label:'Shutterstock',icon:'📷'},
+  {id:'dreamstime',label:'Dreamstime',icon:'💭'},
+  {id:'vecteezy',label:'Vecteezy',icon:'📐'},
+];
+
+function getGdrivePlatforms(){
+  if(!state.gdrivePlatforms||!state.gdrivePlatforms.length){
+    state.gdrivePlatforms=JSON.parse(JSON.stringify(DEFAULT_GDRIVE_PLATFORMS));
+  }
+  return state.gdrivePlatforms;
+}
+
+// Deteksi tema dari nama folder
+function detectGdriveThemes(name){
+  const lower=name.toLowerCase();
+  const themeMap=[
+    {keys:['coloring','mewarnai','color book'],themes:['🎨 Coloring Book']},
+    {keys:['mandala'],themes:['🌀 Mandala']},
+    {keys:['pattern','pola','seamless'],themes:['🔲 Pattern']},
+    {keys:['watercolor','aquarel'],themes:['💧 Watercolor']},
+    {keys:['vector','ilustrasi','illustration'],themes:['✏️ Illustration']},
+    {keys:['clipart','clip art','sticker'],themes:['🖼️ Clipart']},
+    {keys:['mockup'],themes:['📐 Mockup']},
+    {keys:['infographic','infografis'],themes:['📊 Infographic']},
+    {keys:['logo'],themes:['🔠 Logo']},
+    {keys:['icon'],themes:['🔵 Icon Set']},
+    {keys:['animal','hewan','fauna'],themes:['🐾 Animals']},
+    {keys:['flower','bunga','floral'],themes:['🌸 Floral']},
+    {keys:['nature','alam','botanical','botani'],themes:['🌿 Nature']},
+    {keys:['bird','burung'],themes:['🐦 Birds']},
+    {keys:['ocean','sea','laut','marine'],themes:['🌊 Ocean']},
+    {keys:['forest','hutan'],themes:['🌲 Forest']},
+    {keys:['christmas','natal','xmas'],themes:['🎄 Christmas']},
+    {keys:['halloween'],themes:['🎃 Halloween']},
+    {keys:['valentine','love','cinta'],themes:['❤️ Valentine']},
+    {keys:['ramadan','eid','lebaran'],themes:['🌙 Ramadan']},
+    {keys:['wedding','nikah','pernikahan'],themes:['💍 Wedding']},
+    {keys:['birthday','ulang tahun'],themes:['🎂 Birthday']},
+    {keys:['summer','musim panas'],themes:['☀️ Summer']},
+    {keys:['winter','musim dingin'],themes:['❄️ Winter']},
+    {keys:['template'],themes:['📄 Template']},
+    {keys:['social media','sosmed','instagram','facebook'],themes:['📱 Social Media']},
+    {keys:['poster'],themes:['🖼️ Poster']},
+    {keys:['banner'],themes:['🏷️ Banner']},
+    {keys:['ebook','e-book'],themes:['📚 Ebook']},
+    {keys:['planner','journal'],themes:['📓 Planner']},
+    {keys:['abstract','abstrak'],themes:['🔮 Abstract']},
+    {keys:['food','makanan','kuliner'],themes:['🍕 Food']},
+    {keys:['travel','wisata'],themes:['✈️ Travel']},
+    {keys:['kids','anak','children'],themes:['👦 Kids']},
+    {keys:['vintage','retro'],themes:['📼 Vintage']},
+    {keys:['minimalist','minimal'],themes:['◻️ Minimalist']},
+    {keys:['geometric','geometri'],themes:['🔷 Geometric']},
+  ];
+  let found=[];
+  themeMap.forEach(({keys,themes})=>{if(keys.some(k=>lower.includes(k))&&!found.some(x=>themes.includes(x)))found.push(...themes);});
+  const yearMatch=name.match(/20\d{2}/);
+  if(yearMatch) found.push('📅 '+yearMatch[0]);
+  if(!found.length){const first=name.split(/[\s\-_]/)[0];if(first&&first.length>2)found.push('📁 '+first);}
+  return found;
+}
+
+function previewGdriveTheme(){
+  const name=($('gdriveFolderName')&&$('gdriveFolderName').value)||'';
+  const prev=$('gdriveThemePreview');
+  if(!prev)return;
+  if(!name.trim()){prev.style.display='none';return;}
+  const themes=detectGdriveThemes(name);
+  prev.style.display='flex';
+  prev.innerHTML='<span style="font-size:11px;color:var(--muted);font-weight:800">Tema:</span>'+themes.map(t=>`<span class="gdrive-theme-tag">${t}</span>`).join('');
+}
+
+// State form: platform yg dipilih saat add
+let _gdrivePick=new Set();
+let _gdrivePickExtra=[]; // custom platform yang ditambah di form
+
+function toggleGdriveForm(){
+  const form=$('gdriveAddForm');
+  if(!form)return;
+  const showing=form.classList.toggle('show');
+  if(showing){
+    if($('gdriveFolderName'))$('gdriveFolderName').value='';
+    if($('gdriveFolderLink'))$('gdriveFolderLink').value='';
+    if($('gdriveFolderNote'))$('gdriveFolderNote').value='';
+    if($('gdriveThemePreview'))$('gdriveThemePreview').style.display='none';
+
+    _gdrivePick=new Set();
+    _gdrivePickExtra=[];
+    renderGdrivePickerChips();
+    setTimeout(()=>$('gdriveFolderName')&&$('gdriveFolderName').focus(),120);
+  }
+}
+
+function renderGdrivePickerChips(){
+  const box=$('gdrivePlatformPicker');
+  if(!box)return;
+  const platforms=getGdrivePlatforms();
+  const all=[...platforms,..._gdrivePickExtra];
+  box.innerHTML=all.map((p,i)=>{
+    const sel=_gdrivePick.has(p.id);
+    const isExtra=i>=platforms.length;
+    return `<div class="gdrive-pick-chip${sel?' selected':''}${isExtra?' del-mode':''}" onclick="toggleGdrivePick('${p.id}',${isExtra})">
+      <span>${p.icon}</span><span>${esc(p.label)}</span>${sel?'<span style="font-size:11px">✓</span>':''}
+    </div>`;
+  }).join('');
+}
+
+function toggleGdrivePick(id,isExtra){
+  if(_gdrivePick.has(id)) _gdrivePick.delete(id);
+  else _gdrivePick.add(id);
+  renderGdrivePickerChips();
+}
+
+function addGdriveCustomPlatform(){
+  const inp=$('gdriveCustomPlatform');
+  if(!inp)return;
+  const val=inp.value.trim();
+  if(!val)return;
+  const id='custom_'+Date.now();
+  const icons=['🌐','🛒','💼','📦','🏪','🔖'];
+  const icon=icons[Math.floor(Math.random()*icons.length)];
+  _gdrivePickExtra.push({id,label:val,icon});
+  _gdrivePick.add(id);
+  inp.value='';
+  renderGdrivePickerChips();
+}
+
+function saveGdriveFolder(){
+  const name=($('gdriveFolderName')&&$('gdriveFolderName').value.trim())||'';
+  if(!name){alert('Nama tema gambar wajib diisi!');$('gdriveFolderName')&&$('gdriveFolderName').focus();return;}
+  const link=($('gdriveFolderLink')&&$('gdriveFolderLink').value.trim())||'';
+  const note=($('gdriveFolderNote')&&$('gdriveFolderNote').value.trim())||'';
+  const themes=detectGdriveThemes(name);
+  // Kumpulkan platform yang dipilih (default + extra)
+  const platforms=getGdrivePlatforms();
+  const all=[...platforms,..._gdrivePickExtra];
+  const selectedPlatforms=all.filter(p=>_gdrivePick.has(p.id)).map(p=>({...p}));
+  // Kalau tidak pilih apapun, pakai semua platform default
+  const finalPlatforms=selectedPlatforms.length?selectedPlatforms:platforms.map(p=>({...p}));
+  if(!state.gdriveFolders)state.gdriveFolders=[];
+  state.gdriveFolders.push({id:Date.now(),name,link,note,themes,platforms:finalPlatforms,addedDate:day()});
+  persist();
+  toggleGdriveForm();
+  renderGdriveFolders();
+}
+
+function deleteGdriveFolder(id){
+  if(!confirm('Hapus tema ini dari checklist?'))return;
+  state.gdriveFolders=(state.gdriveFolders||[]).filter(f=>f.id!==id);
+  persist();
+  renderGdriveFolders();
+}
+
+// Toggle checklist platform per folder
+function toggleGdriveChip(folderId,platformId){
+  if(!state.gdriveChecks)state.gdriveChecks={};
+  const today=day();
+  if(!state.gdriveChecks[today])state.gdriveChecks[today]={};
+  const key=folderId+'_'+platformId;
+  state.gdriveChecks[today][key]=!state.gdriveChecks[today][key];
+  persist();
+  // Update chip visual only (no full re-render for snappy UX)
+  const chipEl=document.querySelector(`.gdrive-platform-chip[data-key="${key}"]`);
+  if(chipEl){
+    const checked=state.gdriveChecks[today][key];
+    chipEl.classList.toggle('checked',checked);
+    const chk=chipEl.querySelector('.gdrive-chip-check');
+    if(chk)chk.style.display=checked?'inline':'none';
+    // Update folder item done state
+    const folderEl=document.querySelector(`.gdrive-item[data-id="${folderId}"]`);
+    if(folderEl){
+      const folder=(state.gdriveFolders||[]).find(f=>f.id===folderId);
+      if(folder){
+        const checks=state.gdriveChecks[today]||{};
+        const allDone=(folder.platforms||[]).length>0&&(folder.platforms||[]).every(p=>checks[folderId+'_'+p.id]);
+        folderEl.classList.toggle('all-done',allDone);
+        let footer=folderEl.querySelector('.gdrive-done-footer');
+        if(allDone&&!footer){
+          const plats=folderEl.querySelector('.gdrive-platforms');
+          if(plats){
+            const div=document.createElement('div');
+            div.className='gdrive-done-footer';
+            div.innerHTML='✅ Semua platform sudah diupload hari ini!';
+            plats.after(div);
+          }
+        } else if(!allDone&&footer){footer.remove();}
+      }
+    }
+    updateGdriveStats();
+  }
+}
+
+function updateGdriveStats(){
+  const folders=state.gdriveFolders||[];
+  const checks=(state.gdriveChecks&&state.gdriveChecks[day()])||{};
+  let totalChips=0,doneChips=0;
+  folders.forEach(f=>{(f.platforms||[]).forEach(p=>{totalChips++;if(checks[f.id+'_'+p.id])doneChips++;});});
+  const pct=totalChips?Math.round(doneChips/totalChips*100):0;
+  const statsEl=$('gdriveStats');
+  if(statsEl&&folders.length){
+    const allDoneFolders=folders.filter(f=>(f.platforms||[]).length>0&&(f.platforms||[]).every(p=>checks[f.id+'_'+p.id])).length;
+    statsEl.innerHTML=`
+      <div class="gdrive-stat-pill"><span>${allDoneFolders}</span>Tema Selesai</div>
+      <div class="gdrive-stat-pill"><span>${folders.length-allDoneFolders}</span>Belum</div>
+      <div class="gdrive-stat-pill"><span>${doneChips}/${totalChips}</span>Platform</div>
+      <div class="gdrive-stat-pill"><span>${pct}%</span>Progress</div>`;
+    statsEl.style.display='flex';
+  } else if(statsEl){statsEl.style.display='none';}
+  const fill=$('gdriveProgressFill');
+  const txt=$('gdriveProgressText');
+  const wrap=$('gdriveProgressWrap');
+  if(fill)fill.style.width=pct+'%';
+  if(txt)txt.textContent=doneChips+'/'+totalChips;
+  if(wrap)wrap.style.display=folders.length?'flex':'none';
+}
+
+// Inline rename (click nama langsung edit)
+function startGdriveRename(id){
+  const wrap=document.querySelector(`.gdrive-item[data-id="${id}"] .gdrive-name-wrap`);
+  if(!wrap)return;
+  wrap.classList.add('renaming');
+  const inp=wrap.querySelector('.gdrive-name-input');
+  if(inp){inp.focus();inp.select();}
+}
+function finishGdriveRename(id){
+  const el=document.querySelector(`.gdrive-item[data-id="${id}"]`);
+  const wrap=el&&el.querySelector('.gdrive-name-wrap');
+  if(!wrap)return;
+  const inp=wrap.querySelector('.gdrive-name-input');
+  const folder=(state.gdriveFolders||[]).find(f=>f.id===id);
+  if(folder&&inp){
+    const newName=inp.value.trim();
+    if(newName){
+      folder.name=newName;
+      folder.themes=detectGdriveThemes(newName);
+      persist();
+    }
+  }
+  wrap.classList.remove('renaming');
+  renderGdriveFolders();
+}
+
+// Edit panel (link, note, platforms)
+function toggleGdriveEdit(id){
+  const el=document.querySelector(`.gdrive-item[data-id="${id}"]`);
+  if(el)el.classList.toggle('editing');
+}
+function saveGdriveEdit(id){
+  const el=document.querySelector(`.gdrive-item[data-id="${id}"]`);
+  if(!el)return;
+  const folder=(state.gdriveFolders||[]).find(f=>f.id===id);
+  if(!folder)return;
+  const nameEl=el.querySelector('.gdrive-edit-name');
+  const linkEl=el.querySelector('.gdrive-edit-link');
+  const noteEl=el.querySelector('.gdrive-edit-note');
+  if(nameEl&&nameEl.value.trim())folder.name=nameEl.value.trim();
+  if(linkEl)folder.link=linkEl.value.trim();
+  if(noteEl)folder.note=noteEl.value.trim();
+  folder.themes=detectGdriveThemes(folder.name);
+  // Update platforms from checkboxes
+  const platBoxes=el.querySelectorAll('.gdrive-edit-plat');
+  const currentPlatforms=getGdrivePlatforms();
+  const toKeep=new Set([...platBoxes].filter(c=>c.checked).map(c=>c.dataset.pid));
+  // Keep existing custom platforms
+  folder.platforms=(folder.platforms||currentPlatforms).filter(p=>toKeep.has(p.id));
+  // Add any default platform that was checked but not in folder
+  currentPlatforms.forEach(p=>{if(toKeep.has(p.id)&&!folder.platforms.find(fp=>fp.id===p.id))folder.platforms.push({...p});});
+  persist();
+  toggleGdriveEdit(id);
+  renderGdriveFolders();
+}
+
+function addPlatformToFolder(id){
+  const el=document.querySelector(`.gdrive-item[data-id="${id}"]`);
+  if(!el)return;
+  const inp=el.querySelector('.gdrive-add-plat-inp');
+  if(!inp||!inp.value.trim())return;
+  const folder=(state.gdriveFolders||[]).find(f=>f.id===id);
+  if(!folder)return;
+  if(!folder.platforms)folder.platforms=[];
+  const icons=['🌐','🛒','💼','📦','🏪','🔖'];
+  folder.platforms.push({id:'cp_'+Date.now(),label:inp.value.trim(),icon:icons[Math.floor(Math.random()*icons.length)]});
+  inp.value='';
+  persist();
+  toggleGdriveEdit(id);
+  renderGdriveFolders();
+}
+
+// Global platform manager
+function togglePlatformManager(){
+  const wrap=$('gdrivePlatformManagerWrap');
+  if(!wrap)return;
+  const showing=wrap.style.display==='none'||!wrap.style.display;
+  wrap.style.display=showing?'block':'none';
+  if(showing)renderPlatformManagerList();
+}
+function renderPlatformManagerList(){
+  const box=$('gdrivePlatformManagerList');
+  if(!box)return;
+  const platforms=getGdrivePlatforms();
+  box.innerHTML=platforms.map((p,i)=>`
+    <div class="gdrive-pick-chip" style="gap:6px">
+      <span>${p.icon}</span><span>${esc(p.label)}</span>
+      <span onclick="removeGlobalPlatform(${i})" style="cursor:pointer;color:#b91c1c;font-size:16px;line-height:1;margin-left:4px" title="Hapus">×</span>
+    </div>`).join('');
+}
+function removeGlobalPlatform(i){
+  getGdrivePlatforms().splice(i,1);
+  persist();
+  renderPlatformManagerList();
+}
+function addGlobalPlatform(){
+  const inp=$('gdriveNewPlatformName');
+  if(!inp||!inp.value.trim())return;
+  const icons=['🌐','🛒','💼','📦','🏪','🔖'];
+  getGdrivePlatforms().push({id:'gp_'+Date.now(),label:inp.value.trim(),icon:icons[Math.floor(Math.random()*icons.length)]});
+  inp.value='';
+  persist();
+  renderPlatformManagerList();
+}
+
+function gdriveDay(){
+  if(!state.gdriveChecks)state.gdriveChecks={};
+  const today=day();
+  if(!state.gdriveChecks[today])state.gdriveChecks[today]={};
+  return state.gdriveChecks[today];
+}
+
+function renderGdriveFolders(){
+  const list=$('gdriveList');
+  const empty=$('gdriveEmpty');
+  if(!list)return;
+  const folders=state.gdriveFolders||[];
+  const checks=gdriveDay();
+  if(empty)empty.style.display=folders.length?'none':'block';
+  const defaultPlatforms=getGdrivePlatforms();
+
+  list.innerHTML=folders.map(f=>{
+    const platforms=f.platforms&&f.platforms.length?f.platforms:defaultPlatforms;
+    const allDone=platforms.length>0&&platforms.every(p=>checks[f.id+'_'+p.id]);
+    const hasLink=f.link&&f.link.startsWith('http');
+    const themes=(f.themes||[]).map(t=>`<span class="gdrive-theme-tag">${t}</span>`).join('');
+    const chips=platforms.map(p=>{
+      const key=f.id+'_'+p.id;
+      const checked=!!checks[key];
+      return `<div class="gdrive-platform-chip${checked?' checked':''}" data-key="${key}" onclick="toggleGdriveChip(${f.id},'${p.id}')" title="${esc(p.label)}">
+        <span class="gdrive-chip-icon">${p.icon}</span>
+        <span class="gdrive-chip-label">${esc(p.label)}</span>
+        <span class="gdrive-chip-check" style="display:${checked?'inline':'none'}">✓</span>
+      </div>`;
+    }).join('');
+    const editPlatChks=defaultPlatforms.map(p=>{
+      const has=platforms.find(fp=>fp.id===p.id);
+      return `<label style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:800;cursor:pointer">
+        <input type="checkbox" class="gdrive-edit-plat" data-pid="${p.id}" ${has?'checked':''} style="width:16px;height:16px"> ${p.icon} ${esc(p.label)}
+      </label>`;
+    }).join('');
+
+    return `<div class="gdrive-item${allDone?' all-done':''}" data-id="${f.id}">
+      <div class="gdrive-item-top">
+        <div class="gdrive-info">
+          <div class="gdrive-name-wrap">
+            <span class="gdrive-name" onclick="startGdriveRename(${f.id})" title="Klik untuk rename">${esc(f.name)}</span>
+            <input class="gdrive-name-input" value="${esc(f.name)}" onblur="finishGdriveRename(${f.id})" onkeydown="if(event.key==='Enter')finishGdriveRename(${f.id});if(event.key==='Escape'){this.closest('.gdrive-name-wrap').classList.remove('renaming')}"/>
+            <span style="font-size:10px;color:var(--muted);font-weight:700" title="Klik nama untuk rename">✏️</span>
+          </div>
+          ${themes?`<div class="gdrive-theme-row">${themes}</div>`:''}
+          ${f.note?`<div class="gdrive-note-text">📝 ${esc(f.note)}</div>`:''}
+        </div>
+        <div class="gdrive-item-actions">
+          ${hasLink?`<a href="${esc(f.link)}" target="_blank" rel="noopener" class="gdrive-open-btn" title="Buka Google Drive">🔗</a>`:''}
+          <button class="gdrive-edit-btn" onclick="toggleGdriveEdit(${f.id})" title="Edit detail">⚙️</button>
+          <button class="gdrive-del-btn" onclick="deleteGdriveFolder(${f.id})" title="Hapus">×</button>
+        </div>
+      </div>
+      <div class="gdrive-platforms">${chips}</div>
+      ${allDone?`<div class="gdrive-done-footer">✅ Semua platform sudah diupload hari ini!</div>`:''}
+      <div class="gdrive-edit-panel">
+        <div style="font-size:12px;font-weight:900;color:var(--muted);margin-bottom:4px">Edit Detail</div>
+        <label style="font-size:11px;font-weight:900;color:var(--muted)">Nama Tema</label>
+        <input class="gdrive-edit-name" value="${esc(f.name)}" placeholder="Nama tema gambar"/>
+        <div class="gdrive-edit-row">
+          <div>
+            <label style="font-size:11px;font-weight:900;color:var(--muted)">Link GDrive (opsional)</label>
+            <input class="gdrive-edit-link" value="${esc(f.link||'')}" placeholder="https://drive.google.com/..."/>
+          </div>
+          <div>
+            <label style="font-size:11px;font-weight:900;color:var(--muted)">Catatan</label>
+            <input class="gdrive-edit-note" value="${esc(f.note||'')}" placeholder="Catatan opsional"/>
+          </div>
+        </div>
+        <div style="font-size:11px;font-weight:900;color:var(--muted);margin-top:6px;margin-bottom:4px">Platform yang aktif</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px">${editPlatChks}</div>
+        <div style="display:flex;gap:6px;margin-bottom:8px">
+          <input class="gdrive-add-plat-inp" placeholder="Platform custom..." style="flex:1;font-size:12px" onkeydown="if(event.key==='Enter'){addPlatformToFolder(${f.id});event.preventDefault()}"/>
+          <button onclick="addPlatformToFolder(${f.id})" class="secondary" style="font-size:12px;min-width:70px">＋ Tambah</button>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button onclick="saveGdriveEdit(${f.id})" style="flex:1">💾 Simpan</button>
+          <button onclick="toggleGdriveEdit(${f.id})" class="secondary" style="flex:1">Batal</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  updateGdriveStats();
+}
 function getUploadTotals(){return uploadDay().reduce((a,b)=>({target:a.target+(+b.target||0),uploaded:a.uploaded+(+b.uploaded||0),approved:a.approved+(+b.approved||0),rejected:a.rejected+(+b.rejected||0)}),{target:0,uploaded:0,approved:0,rejected:0})}
 function syncUploadTodayFromSites(forceSync=false){
   let t=getUploadTotals(), x=d();
@@ -1403,7 +1972,7 @@ function monthlyProgressBar(label,value,goal,unit='',money=false){
 }
 
 function goalLine(name,val,goal,money=false){let pct=goal?Math.min(100,Math.round(val/goal*100)):0;return `<div style="margin-bottom:13px"><div class="row between"><b>${name}</b><span class="mini">${money?usd(val):val} / ${money?usd(goal):goal||0}</span></div><div class="progress"><div class="bar" style="width:${pct}%"></div></div><span class="pill">${pct}%</span></div>`}
-function exportJSON(){dl(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),'digital-creator-os-final-backup.json')}function exportCSV(){let rows=[['date','habit_done','habit_total','todo_done','todo_total','upload_today','pages_today','mood','focus']];Object.keys(state.days).sort().forEach(k=>{let x=state.days[k];rows.push([k,Object.values(x.checks||{}).filter(Boolean).length,state.habits.length,(x.todos||[]).filter(t=>t.done).length,(x.todos||[]).length,x.uploadToday||0,x.pagesToday||0,(x.mood||''),(x.focus||'').replaceAll(',',' ')])});dl(new Blob([rows.map(r=>r.join(',')).join('\n')],{type:'text/csv'}),'digital-creator-os-final-summary.csv')}function dl(blob,name){let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click()}function handleImportFile(input){let file=input.files[0];if(!file)return;let r=new FileReader();r.onload=e=>{try{let data=JSON.parse(e.target.result);if(!data.days||!data.habits)throw 0;if(confirm('Data saat ini akan diganti. Lanjutkan?')){state=data;persist();location.reload()}}catch{alert('File JSON tidak valid')}};r.readAsText(file)}function resetAll(){if(confirm('Reset semua data?')){localStorage.removeItem('dcos_final_sidebar');location.reload()}}
+function exportJSON(){dl(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),'digital-creator-os-final-backup.json')}function exportCSV(){let rows=[['date','habit_done','habit_total','todo_done','todo_total','upload_today','pages_today','mood','focus']];Object.keys(state.days).sort().forEach(k=>{let x=state.days[k];rows.push([k,Object.values(x.checks||{}).filter(Boolean).length,state.habits.length,(x.todos||[]).filter(t=>t.done).length,(x.todos||[]).length,x.uploadToday||0,x.pagesToday||0,(x.mood||''),(x.focus||'').replaceAll(',',' ')])});dl(new Blob([rows.map(r=>r.join(',')).join('\n')],{type:'text/csv'}),'digital-creator-os-final-summary.csv')}function dl(blob,name){let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click()}function handleImportFile(input){let file=input.files[0];if(!file)return;let r=new FileReader();r.onload=e=>{try{let raw=e.target.result;let data=JSON.parse(raw);if(typeof data!=='object'||data===null)throw new Error('Bukan objek JSON');if(!data.habits&&!data.days&&!data.income&&!data.products)throw new Error('File JSON tidak dikenali sebagai backup Digital Creator OS');if(confirm('Data saat ini akan diganti dengan data dari file backup ini. Lanjutkan?')){localStorage.setItem('dcos_final_sidebar',JSON.stringify(data));input.value='';location.reload()}}catch(err){alert('Gagal import: '+(err.message||'File JSON tidak valid'));input.value=''}};r.onerror=()=>{alert('Gagal membaca file');input.value=''};r.readAsText(file)}function resetAll(){if(confirm('Reset semua data? Semua habit, upload, income, dan data lainnya akan dihapus permanen.')){localStorage.removeItem('dcos_final_sidebar');location.reload()}}
 
 function logoutToWelcome(){
   if(!confirm('Keluar dari profil dan kembali ke popup Selamat Datang? Data tracker tetap aman.')) return;
@@ -1871,6 +2440,95 @@ Buku Tercatat: ${state.books.length}
 }
 
 $('incomeMonth').addEventListener('change',renderIncome);initNav();loadProfile();applySidebarPin();renderAll();setTimeout(showWelcomeIfNeeded,150);
+updateWeeklyResetInfo();autoWeeklyResetIfSunday();
+
+// ════ FITUR RESET DATA MINGGUAN ════
+
+function getNextSunday(){
+  const today=new Date();
+  const dow=today.getDay(); // 0=Minggu
+  const diff=dow===0?7:(7-dow);
+  const next=new Date(today);
+  next.setDate(today.getDate()+diff);
+  return next;
+}
+
+function formatDate(d){
+  return d.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+}
+
+function updateWeeklyResetInfo(){
+  const info=$('weeklyResetInfo');
+  if(!info) return;
+  const today=new Date();
+  const dow=today.getDay();
+  if(dow===0){
+    info.textContent='Hari ini hari Minggu — reset tersedia sekarang.';
+    const btn=$('weeklyResetBtn');
+    if(btn) btn.style.background='linear-gradient(135deg,var(--brand),var(--brand2))';
+    if(btn) btn.style.color='#fff';
+  } else {
+    const next=getNextSunday();
+    info.textContent='Reset berikutnya: '+formatDate(next);
+  }
+}
+
+function autoWeeklyResetIfSunday(){
+  const today=new Date();
+  if(today.getDay()!==0) return; // hanya hari Minggu
+  const todayKey=localDateKey(today);
+  const lastResetKey='dcos_weekly_reset_last';
+  const last=localStorage.getItem(lastResetKey);
+  if(last===todayKey) return; // sudah direset hari Minggu ini
+  doWeeklyReset(true);
+  localStorage.setItem(lastResetKey,todayKey);
+}
+
+function confirmWeeklyReset(){
+  if(!confirm('Reset data upload, approved, dan rejected untuk minggu ini?\n\nData minggu lalu TIDAK akan terhapus. Target mingguan juga tetap tersimpan.\n\nLanjutkan?')) return;
+  doWeeklyReset(false);
+  // Tandai sudah reset hari Minggu ini jika memang hari Minggu
+  const today=new Date();
+  if(today.getDay()===0){
+    localStorage.setItem('dcos_weekly_reset_last',localDateKey(today));
+  }
+}
+
+function doWeeklyReset(silent){
+  // Reset upload per situs (uploaded, approved, rejected) untuk semua tanggal dalam minggu berjalan
+  const wkDays=weekKeysForDate(day());
+  wkDays.forEach(dateKey=>{
+    if(state.days[dateKey]){
+      if('uploadToday' in state.days[dateKey]) state.days[dateKey].uploadToday='';
+      if('approvedToday' in state.days[dateKey]) state.days[dateKey].approvedToday='';
+      if('rejectedToday' in state.days[dateKey]) state.days[dateKey].rejectedToday='';
+    }
+  });
+  // Reset uploaded/approved/rejected per site untuk minggu ini
+  if(state.uploadSites && Array.isArray(state.uploadSites)){
+    // Reset data upload harian per situs untuk minggu ini
+    wkDays.forEach(dateKey=>{
+      const sitesKey='dcos_sites_'+dateKey;
+      localStorage.removeItem(sitesKey);
+      if(state.days[dateKey] && state.days[dateKey].sitesSnapshot){
+        delete state.days[dateKey].sitesSnapshot;
+      }
+    });
+    // Reset nilai uploaded/approved/rejected di state uploadSites untuk hari ini
+    state.uploadSites=state.uploadSites.map(s=>({...s,uploaded:0,approved:0,rejected:0}));
+  }
+  persist();
+  renderAll();
+  if(!silent){
+    const msg=$('weeklyResetDoneMsg');
+    if(msg){
+      msg.style.display='block';
+      clearTimeout(window.__weeklyResetTimer);
+      window.__weeklyResetTimer=setTimeout(()=>msg.style.display='none',3000);
+    }
+  }
+}
+// ════ END RESET DATA MINGGUAN ════
 </script>
 </body>
 </html>
