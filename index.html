@@ -847,7 +847,7 @@ body.sidebar-collapsed .hamb{display:none!important;}
 </div>
 
 </section>
-<section class="hidden" id="income"><div class="grid"><div class="card"><h2>💰 Income Tracker</h2><p class="mini">Default: Canva, Adobe Stock, Magnific. Sumber lain bisa Custom.</p><div class="two"><label>Bulan<input id="incomeMonth" type="month"/></label><label>Sumber<select id="incomeSource" onchange="toggleOtherSource()"><option>Canva</option><option>Adobe Stock</option><option>Magnific</option><option>Custom Source (+)</option></select></label><label class="hidden" id="incomeOtherWrap">Sumber lainnya<input id="incomeOther" placeholder="Contoh: Freepik"/></label><label>Income USD<input id="incomeAmount" min="0" step="0.01" type="number"/></label><button onclick="addIncome()">Tambah Income</button></div><table><thead><tr><th>Bulan</th><th>Sumber</th><th>Income USD</th><th></th></tr></thead><tbody id="incomeTable"></tbody></table></div><div class="card"><h2>📊 Ringkasan Income</h2><div class="stat"><span class="mini">Total bulan dipilih</span><b id="incomeMonthTotal">$0.00</b></div><br/><div class="stat"><span class="mini">Total semua data</span><b id="incomeTotal">$0.00</b></div><div id="incomeSummary" style="margin-top:12px"></div></div></div></section>
+<section class="hidden" id="income"><div class="card"><h2>📊 Ringkasan Income</h2><div class="two"><div class="stat"><span class="mini">Total bulan dipilih</span><b id="incomeMonthTotal">$0.00</b></div><div class="stat"><span class="mini">Total semua data</span><b id="incomeTotal">$0.00</b></div></div><div id="incomeSummary" style="margin-top:12px"></div></div><div class="card chart-card"><h2>📈 Grafik Income Bulanan per Sumber</h2><p class="mini">Canva, Adobe Stock, Magnific &amp; sumber custom lainnya, 6 bulan terakhir.</p><canvas height="260" id="incomeSourceChart" width="600"></canvas><div class="row" id="incomeSourceLegend" style="margin-top:10px"></div></div><div class="grid"><div class="card"><h2>💰 Income Tracker</h2><p class="mini">Default: Canva, Adobe Stock, Magnific. Sumber lain bisa Custom.</p><div class="two"><label>Bulan<input id="incomeMonth" type="month"/></label><label>Sumber<select id="incomeSource" onchange="toggleOtherSource()"><option>Canva</option><option>Adobe Stock</option><option>Magnific</option><option>Custom Source (+)</option></select></label><label class="hidden" id="incomeOtherWrap">Sumber lainnya<input id="incomeOther" placeholder="Contoh: Freepik"/></label><label>Income USD<input id="incomeAmount" min="0" step="0.01" type="number"/></label><button onclick="addIncome()">Tambah Income</button></div><table><thead><tr><th>Bulan</th><th>Sumber</th><th>Income USD</th><th></th></tr></thead><tbody id="incomeTable"></tbody></table></div></div></section>
 <section class="hidden" id="reading"><div class="grid"><div class="card"><div class="section-title"><h2>📚 Reading Tracker</h2><div class="mini" style="margin-bottom:10px">Tanggal Baca<input id="readingDate" onchange="save()" style="margin-top:6px" type="date"/></div><button onclick="addBook()">+ Tambah Buku</button></div><div id="bookList"></div></div><div class="card"><h2>📝 Catatan Baca Hari Ini</h2><label>Halaman dibaca hari ini<input id="pagesToday" min="0" oninput="save()" type="number"/></label><br/><label>Insight buku<textarea id="readingNote" oninput="save()"></textarea></label><button class="secondary copy-btn" onclick="copyReadingInsight()">📋 Copy Insight Buku</button></div></div></section>
 <section class="hidden" id="gpt"><div class="card"><div class="section-title"><h2>🤖 GPT Tracker</h2><button onclick="addRow('gptList')">+ Tambah GPT</button></div><p class="mini">Simpan nama GPT, status, catatan, dan link akses agar bisa langsung dibuka.</p><div id="gptList"></div></div></section>
 <section class="hidden" id="product"><div class="card"><div class="section-title"><h2>🛍 Product Tracker</h2><button onclick="addRow('productList')">+ Tambah Produk</button></div><div id="productList"></div></div></section>
@@ -1838,7 +1838,7 @@ function copyReadingInsight(){
   });
 }
 
-function toggleOtherSource(){if($('incomeOtherWrap'))$('incomeOtherWrap').classList.toggle('hidden',$('incomeSource').value!=='Custom Source (+)')}function addIncome(){let month=$('incomeMonth').value||currentMonth();let src=$('incomeSource').value;if(src==='Custom Source (+)')src=$('incomeOther').value.trim()||'Custom Source';let amt=Number($('incomeAmount').value||0);if(!amt)return;state.income.push({month,src,amt});$('incomeAmount').value='';$('incomeOther').value='';persist();renderIncome()}function renderIncome(){let tb=$('incomeTable');if(!tb)return;if(!$('incomeMonth').value)$('incomeMonth').value=currentMonth();let selected=$('incomeMonth').value;tb.innerHTML=state.income.map((r,i)=>`<tr><td>${r.month}</td><td>${esc(r.src)}</td><td>${usd(r.amt)}</td><td><button class="danger" onclick="state.income.splice(${i},1);persist();renderIncome()">×</button></td></tr>`).join('');let all=state.income.reduce((a,b)=>a+(+b.amt||0),0),mo=state.income.filter(r=>r.month===selected).reduce((a,b)=>a+(+b.amt||0),0);$('incomeTotal').textContent=usd(all);$('incomeMonthTotal').textContent=usd(mo);let by={};state.income.filter(r=>r.month===selected).forEach(r=>by[r.src]=(by[r.src]||0)+(+r.amt||0));$('incomeSummary').innerHTML=Object.keys(by).length?Object.entries(by).map(([s,v])=>`<span class="pill">${esc(s)}: ${usd(v)}</span>`).join(''):'<p class="mini">Belum ada income bulan ini.</p>';toggleOtherSource();updateDashboard()}
+function toggleOtherSource(){if($('incomeOtherWrap'))$('incomeOtherWrap').classList.toggle('hidden',$('incomeSource').value!=='Custom Source (+)')}function addIncome(){let month=$('incomeMonth').value||currentMonth();let src=$('incomeSource').value;if(src==='Custom Source (+)')src=$('incomeOther').value.trim()||'Custom Source';let amt=Number($('incomeAmount').value||0);if(!amt)return;state.income.push({month,src,amt});$('incomeAmount').value='';$('incomeOther').value='';persist();renderIncome()}function renderIncome(){let tb=$('incomeTable');if(!tb)return;if(!$('incomeMonth').value)$('incomeMonth').value=currentMonth();let selected=$('incomeMonth').value;tb.innerHTML=state.income.map((r,i)=>`<tr><td>${r.month}</td><td>${esc(r.src)}</td><td>${usd(r.amt)}</td><td><button class="danger" onclick="state.income.splice(${i},1);persist();renderIncome()">×</button></td></tr>`).join('');let all=state.income.reduce((a,b)=>a+(+b.amt||0),0),mo=state.income.filter(r=>r.month===selected).reduce((a,b)=>a+(+b.amt||0),0);$('incomeTotal').textContent=usd(all);$('incomeMonthTotal').textContent=usd(mo);let by={};state.income.filter(r=>r.month===selected).forEach(r=>by[r.src]=(by[r.src]||0)+(+r.amt||0));$('incomeSummary').innerHTML=Object.keys(by).length?Object.entries(by).map(([s,v])=>`<span class="pill">${esc(s)}: ${usd(v)}</span>`).join(''):'<p class="mini">Belum ada income bulan ini.</p>';toggleOtherSource();renderIncomeSourceChart();updateDashboard()}
 function weekKeys(){return weekKeysForDate(day());}
 function monthKeys(){
   let d0=new Date(day()+'T12:00:00');
@@ -1886,6 +1886,37 @@ function drawBarChart(canvasId, labels, values, prefix=''){
 function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h);ctx.lineTo(x,y+h);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
 function compact(n){n=Number(n||0);return n>=1000?(n/1000).toFixed(n>=10000?0:1)+'k':String(Math.round(n));}
 function renderCharts(){let months=getLastMonths(6), labels=months.map(monthLabel);drawBarChart('incomeChart',labels,months.map(monthlyIncomeValue),'$');drawBarChart('uploadChart',labels,months.map(monthlyUploadValue),'');}
+const INCOME_SOURCE_COLORS=['#8b5cf6','#f472b6','#22c55e','#f59e0b','#0ea5e9','#ef4444','#14b8a6','#a855f7'];
+function incomeSources(){let set=new Set(DEFAULT_SITES.map(n=>n==='Adobe Stock'?'Adobe Stock':n));state.income.forEach(r=>{if(r.src)set.add(r.src)});return Array.from(set);}
+function monthlySourceIncomeValue(month,src){return state.income.filter(r=>r.month===month&&r.src===src).reduce((s,r)=>s+(+r.amt||0),0);}
+function drawGroupedBarChart(canvasId,labels,series,prefix=''){
+  let c=$(canvasId); if(!c||!c.getContext)return; let ctx=c.getContext('2d');
+  let w=c.width=c.clientWidth*devicePixelRatio, h=c.height=c.clientHeight*devicePixelRatio;
+  ctx.scale(devicePixelRatio,devicePixelRatio); w=c.clientWidth; h=c.clientHeight; ctx.clearRect(0,0,w,h);
+  let dark=document.documentElement.classList.contains('body-dark');
+  let ink=dark?'#f9fafb':'#261d35', muted=dark?'#cbd5e1':'#786b8d', grid=dark?'#374151':'#eadfff';
+  let allValues=series.flatMap(s=>s.values); let max=Math.max(1,...allValues);
+  let pad=34,bottom=32,top=18; let groupW=(w-pad-12)/Math.max(1,labels.length);
+  let barW=Math.max(3,(groupW*0.7)/Math.max(1,series.length));
+  ctx.font='12px system-ui'; ctx.strokeStyle=grid; ctx.lineWidth=1;
+  for(let i=0;i<4;i++){let y=top+(h-bottom-top)*i/3;ctx.beginPath();ctx.moveTo(pad,y);ctx.lineTo(w-8,y);ctx.stroke();}
+  labels.forEach((label,i)=>{
+    let groupStart=pad+groupW*i+(groupW-barW*series.length)/2;
+    series.forEach((s,si)=>{
+      let v=s.values[i]||0; let barH=(h-bottom-top)*(v/max); let x=groupStart+si*barW; let y=h-bottom-barH;
+      ctx.fillStyle=s.color; roundRect(ctx,x,Math.max(top,y),Math.max(1,barW*0.86),barH,3); ctx.fill();
+    });
+    ctx.fillStyle=muted; ctx.textAlign='center'; ctx.font='11px system-ui'; ctx.fillText(label,pad+groupW*(i+0.5),h-10);
+  });
+}
+function renderIncomeSourceChart(){
+  if(!$('incomeSourceChart'))return;
+  let months=getLastMonths(6), labels=months.map(monthLabel), sources=incomeSources();
+  let series=sources.map((src,i)=>({name:src,color:INCOME_SOURCE_COLORS[i%INCOME_SOURCE_COLORS.length],values:months.map(mo=>monthlySourceIncomeValue(mo,src))}));
+  drawGroupedBarChart('incomeSourceChart',labels,series,'$');
+  let legend=$('incomeSourceLegend');
+  if(legend)legend.innerHTML=series.map(s=>`<span class="pill" style="background:${s.color}22;color:${s.color}"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${s.color};margin-right:5px"></span>${esc(s.name)}: ${usd(s.values[s.values.length-1])}</span>`).join('')||'<p class="mini">Belum ada data income.</p>';
+}
 function moodEmoji(v){return String(v||'').split(' ')[0]||''}
 function localDateKey(dt){
   const y=dt.getFullYear();
@@ -2007,7 +2038,7 @@ function saveWelcomeProfile(){
 
 
 
-function toggleDarkMode(){state.darkMode=!state.darkMode;persist();document.documentElement.classList.toggle('body-dark',!!state.darkMode);renderCharts();}
+function toggleDarkMode(){state.darkMode=!state.darkMode;persist();document.documentElement.classList.toggle('body-dark',!!state.darkMode);renderCharts();renderIncomeSourceChart();}
 function exportPDFReport(){
   let month=day().slice(0,7); let income=monthlyIncomeValue(month); let upload=monthlyUploadValue(month); let streak=calculateStreak();
   let report=`Digital Creator OS Report
